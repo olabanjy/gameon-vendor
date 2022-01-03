@@ -1,0 +1,305 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="nk-content nk-content-fluid">
+    <div class="container-xl wide-lg">
+        <div class="nk-content-body">
+            <div class="nk-block-head nk-block-head-sm">
+                <div class="nk-block-between">
+                    <div class="nk-block-head-content">
+                        <h3 class="nk-block-title page-title">Item List</h3>
+                    </div><!-- .nk-block-head-content -->
+                    <div class="nk-block-head-content">
+                        <div class="toggle-wrap nk-block-tools-toggle">
+                            <a href="#" class="btn btn-icon btn-trigger toggle-expand mr-n1" data-target="pageMenu"><em class="icon ni ni-more-v"></em></a>
+                            <div class="toggle-expand-content" data-content="pageMenu">
+                                <ul class="nk-block-tools g-3">
+                                    <li>
+                                        <div class="form-control-wrap">
+                                            <div class="form-icon form-icon-right">
+                                                <em class="icon ni ni-search"></em>
+                                            </div>
+                                            <input type="text" class="form-control" id="default-04" placeholder="Quick search by id">
+                                        </div>
+                                    </li>
+                                    <li>
+                                     
+                                            <a href="#" class=" btn btn-outline-light btn-white" data-toggle="modal" data-target="#instructions">Check Instructions</a>
+                                           
+                                   
+                                    </li>
+                                    <li class="nk-block-tools-opt">
+                                        <a href="#" data-target="addProduct" class="toggle btn btn-icon btn-primary d-md-none"><em class="icon ni ni-plus"></em></a>
+                                        <a href="#" data-target="addProduct" class="toggle btn btn-primary d-none d-md-inline-flex"><em class="icon ni ni-plus"></em><span>Add Item</span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div><!-- .nk-block-head-content -->
+                </div><!-- .nk-block-between -->
+            </div><!-- .nk-block-head -->
+            <div class="nk-block">
+                <div class="row g-gs">
+
+                    {% if all_ur_items %}
+                    {% for item in all_ur_items %}
+                    <div class="col-xxl-3 col-lg-4 col-sm-6">
+                        <div class="card card-bordered product-card">
+                            <div class="product-thumb">
+                                <a href="#">
+                                    <img class="card-img-top" src="{{item.displayImagePath.url}}" alt="">
+                                </a>
+                                <ul class="product-badges">
+                                    {% if item.admin_approved == True %}
+                                    <li><span class="badge badge-success">Approved</span></li>
+                                    {% else %}
+                                    <li><span class="badge badge-danger">Pending</span></li>
+                                    {% endif %}
+                                </ul>
+                                <ul class="product-actions">
+                                    <!-- <li><a href="#"><em class="icon ni ni-cart"></em></a></li>
+                                    <li><a href="#"><em class="icon ni ni-heart"></em></a></li> -->
+                                </ul>
+                            </div>
+                            <div class="card-inner text-center">
+                                <ul class="product-tags">
+                                    <li><a href="#">{{item.type}}</a></li>
+                                </ul>
+                                <h5 class="product-title"><a href="#">{{item.name}}</a></h5>
+                                <div class="product-price text-primary h5">
+                                    {% if item.discount_price %}
+                                    <small class="text-muted del fs-13px">₦{{item.discount_price}}</small>₦{{item.price}}
+                                    {% else %}
+                                    ₦{{item.price}}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- .col -->
+                    {% endfor %}
+                    {% endif %}
+                    
+                </div>
+            </div><!-- .nk-block -->
+            <div class="nk-add-product toggle-slide toggle-slide-right" data-content="addProduct" data-toggle-screen="any" data-toggle-overlay="true" data-toggle-body="true" data-simplebar>
+                <div class="nk-block-head">
+                    <div class="nk-block-head-content">
+                        <h5 class="nk-block-title">New Item</h5>
+                        <div class="nk-block-des">
+                            <p>Please read the intructions carefully before adding a new item</p>
+                        </div>
+                    </div>
+                </div><!-- .nk-block-head -->
+                <form action="#" method="post" enctype="multipart/form-data" >
+                    {% csrf_token %}
+                <div class="nk-block">
+                    <div class="row g-3">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label class="form-label" for="item_name">Item Name*</label>
+                                <div class="form-control-wrap">
+                                    <input type="text" name="item_name" class="form-control" id="item_name" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-label" for="item_type">Item Type*</label>
+                                <div class="form-control-wrap ">
+                                    <div class="form-control-select">
+                                        {% if types %}
+                                        <select name="item_type" class="form-control" id="item_type" required>
+                                            {% for val in types %}
+                                            <option value="{{val}}"> {{val}}  </option>
+                                            {% endfor %}
+                                        </select>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-label" for="item_platform">Item Platform*</label>
+                                <div class="form-control-wrap ">
+                                    <div class="form-control-select">
+                                        {% if platforms %}
+                                        <select name="item_platform" class="form-control" id="item_platform" required>
+                                            {% for val in platforms %}
+                                            <option value="{{val}}"> {{val}}  </option>
+                                            {% endfor %}
+                                        </select>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-label" for="item_cat">Item Cat*</label>
+                                <div class="form-control-wrap ">
+                                    <div class="form-control-select">
+                                        {% if cats %}
+                                        <select name="item_cat" class="form-control" id="item_cat" required>
+                                            {% for val in cats %}
+                                            <option value="{{val}}"> {{val}}  </option>
+                                            {% endfor %}
+                                        </select>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-label" for="item_price">Price*</label>
+                                <div class="form-control-wrap">
+                                    <input type="number" class="form-control" min="1" name="item_price" id="item_price" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-label" for="discount_price">Discount Price</label>
+                                <div class="form-control-wrap">
+                                    <input type="number" name="discount_price" min="1" class="form-control" id="discount_price">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-label" for="item_quantity">Quantity*</label>
+                                <div class="form-control-wrap">
+                                    <input type="number" name="item_quantity" min="1" class="form-control" id="item_quantity" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label class="form-label" for="displayImagePath"> Display Image Path*</label>
+                            <div class="form-control-wrap">
+                                <div class="custom-file">
+                                    <input name="displayImagePath" type="file" class="custom-file-input" id="displayImagePath" accept="image/*" required> 
+                                    <label class="custom-file-label" for="displayImagePath">Choose file</label> 
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label class="form-label" for="thumbnailImagePath"> Thumbnail Image Path* </label>
+                                <div class="form-control-wrap">
+                                    <div class="custom-file">
+                                        <input name="thumbnailImagePath" type="file" class="custom-file-input" id="thumbnailImagePath" accept="image/*" required> 
+                                        <label class="custom-file-label" for="thumbnailImagePath">Choose file</label> 
+                                    </div>
+                                </div>
+                            </div>
+                        
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label class="form-label" for="bannerImagePath"> Banner Image Path* </label>
+                                <div class="form-control-wrap">
+                                    <div class="custom-file">
+                                        <input name="bannerImagePath" type="file" class="custom-file-input" id="bannerImagePath" accept="image/*" required> 
+                                        <label class="custom-file-label" for="bannerImagePath">Choose file</label> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label class="form-label" for="itemTrailerVideo"> Trailer Video </label>
+                                <div class="form-control-wrap">
+                                    <div class="custom-file">
+                                        <input name="bannerImagePath" type="file" class="custom-file-input" id="itemTrailerVideo" accept="video/*"> 
+                                        <label class="custom-file-label" for="itemTrailerVideo">Choose file</label> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button class="btn btn-primary"><em class="icon ni ni-plus"></em><span>Submit</span></button>
+                        </div>
+                    </div>
+                </div><!-- .nk-block -->
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+
+
+{% block modals %}
+<div class="modal fade" tabindex="-1" role="dialog" id="instructions">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <a href="#" class="close" data-dismiss="modal"><em class="icon ni ni-cross-sm"></em></a>
+            <div class="modal-body modal-body-md">
+                <h5 class="title mb-4">Item Onboarding Instructions</h5>
+                <ul class="nk-nav nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#tabItem1">Item Image sizes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#tabItem2">Item Name</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#tabItem3">Trailer Video</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tabItem1">
+                        <h6 class="title">displayImagePath</h6>
+                        <div style="border: solid whitesmoke;" class="container"> 
+                        <img src="{% static 'images/product/5.jpg' %}" alt="">
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro numquam distinctio ab cupiditate veniam a aperiam architecto perspiciatis quidem provident!</p>
+                        <h6 class="title" >bannerImagePath</h6>
+                        <div style="border: solid whitesmoke;" class="container"> 
+                            <img src="{% static 'images/product/1-1.jpg' %}" alt="">
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro numquam distinctio ab cupiditate veniam a aperiam architecto perspiciatis quidem provident!</p>
+                        <h6 class="title" >thumbnailImagePath</h6>
+                        <div style="border: solid whitesmoke;" class="container"> 
+                        <img src="{% static 'images/product/5.jpg' %}" alt="">
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro numquam distinctio ab cupiditate veniam a aperiam architecto perspiciatis quidem provident!</p>
+                       
+                    </div>
+                    <div class="tab-pane" id="tabItem2">
+                        <h6 class="title">Item Name</h6>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro numquam distinctio ab cupiditate veniam a aperiam architecto perspiciatis quidem provident!</p>
+                    </div>
+                    <div class="tab-pane" id="tabItem3">
+                        <h6 class="title">Trailer Video </h6>
+                        <p>The maximum size for the trailer video has to be 9.5mb, Anything above that will be rejected</p>
+                    </div>
+                </div>
+            </div>
+        </div><!-- .modal-content -->
+    </div><!-- .modla-dialog -->
+</div><!-- .modal -->
+{% endblock modals %}
+
+{% block extra_scripts %}
+
+<script>
+
+    $('#itemTrailerVideo').on('change', function() {
+        const fileSize = this.files[0].size / 1024 / 1024
+        if (fileSize > 10){
+            console.log('This file size is: ' + fileSize + "MiB");
+            this.value = null;
+            alert(`Trailer Video size must be less than 9.5mb`);
+            
+        }        
+});
+</script>
+
+{% endblock extra_scripts %}
