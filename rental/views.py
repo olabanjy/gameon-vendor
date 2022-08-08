@@ -50,7 +50,7 @@ class ItemList(View):
     def post(self, request, *args, **kwargs):
         if self.request.user.profile.onboarded == False:
             print("You cannot add products yet ")
-            return redirect("shop:item-list")
+            return redirect("rental:item-list")
 
         item_name = request.POST.get("item_name")
         item_desc = request.POST.get("item_desc")
