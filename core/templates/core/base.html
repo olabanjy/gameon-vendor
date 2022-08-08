@@ -62,11 +62,11 @@
                                         </a>
                                         <ul class="nk-menu-sub">
                                             <li class="nk-menu-item">
-                                                <a href="{% url 'shop:item-list' %}" class="nk-menu-link"><span class="nk-menu-text">Items</span></a>
+                                                <a href="{% url 'shop:item-list' %}" class="nk-menu-link"><span class="nk-menu-text">Shop Items</span></a>
                                             </li>
                                            
                                             <li class="nk-menu-item">
-                                                <a href="#" class="nk-menu-link"><span class="nk-menu-text"> Orders </span></a>
+                                                <a href="{% url 'shop:shop-orders' %}" class="nk-menu-link"><span class="nk-menu-text">Shop Orders </span></a>
                                             </li>
                                         </ul><!-- .nk-menu-sub -->
                                     </li><!-- .nk-menu-item -->
@@ -77,30 +77,16 @@
                                         </a>
                                         <ul class="nk-menu-sub">
                                             <li class="nk-menu-item">
-                                                <a href="#" class="nk-menu-link"><span class="nk-menu-text">Items</span></a>
+                                                <a href="{% url 'rental:item-list' %}" class="nk-menu-link"><span class="nk-menu-text">Rental Items</span></a>
                                             </li>
                                             <li class="nk-menu-item">
-                                                <a href="#" class="nk-menu-link"><span class="nk-menu-text">Create Item </span></a>
+                                                <a href="#" class="nk-menu-link"><span class="nk-menu-text">Rental Order </span></a>
                                             </li>
                                             
                                             
                                         </ul><!-- .nk-menu-sub -->
                                     </li><!-- .nk-menu-item -->
                                    
-                                    <li class="nk-menu-item has-sub">
-                                        <a href="#" class="nk-menu-link nk-menu-toggle">
-                                            <span class="nk-menu-icon"><em class="icon ni ni-tranx"></em></span>
-                                            <span class="nk-menu-text">Transactions</span>
-                                        </a>
-                                        <ul class="nk-menu-sub">
-                                            <li class="nk-menu-item">
-                                                <a href="#" class="nk-menu-link"><span class="nk-menu-text">Tranx List - Basic</span></a>
-                                            </li>
-                                            <li class="nk-menu-item">
-                                                <a href="#" class="nk-menu-link"><span class="nk-menu-text">Tranx List - Crypto</span></a>
-                                            </li>
-                                        </ul><!-- .nk-menu-sub -->
-                                    </li><!-- .nk-menu-item -->
 
                                    
                                    
@@ -108,13 +94,7 @@
                                     <li class="nk-menu-heading">
                                         <h6 class="overline-title text-primary-alt">Vendor Account </h6>
                                     </li><!-- .nk-menu-heading -->
-                                    <li class="nk-menu-item has-sub">
-                                        <a href="#" class="nk-menu-link">
-                                            <span class="nk-menu-icon"><em class="icon ni ni-signin"></em></span>
-                                            <span class="nk-menu-text">Wallets</span>
-                                        </a>
-                                        
-                                    </li><!-- .nk-menu-item -->
+                                   
                                     <li class="nk-menu-item">
                                         <a href="#" class="nk-menu-link">
                                             <span class="nk-menu-icon"><em class="icon ni ni-files"></em></span>
@@ -194,9 +174,9 @@
                                             </div>
                                             <div class="dropdown-inner">
                                                 <ul class="link-list">
-                                                    <li><a href="#"><em class="icon ni ni-user-alt"></em><span>View Profile</span></a></li>
+
                                                     <li><a href="#"><em class="icon ni ni-setting-alt"></em><span>Account Setting</span></a></li>
-                                                    <li><a href="#"><em class="icon ni ni-activity-alt"></em><span>Login Activity</span></a></li>
+     
                                                     <li><a class="dark-switch" href="#"><em class="icon ni ni-moon"></em><span>Dark Mode</span></a></li>
                                                 </ul>
                                             </div>
@@ -207,78 +187,7 @@
                                             </div>
                                         </div>
                                     </li><!-- .dropdown -->
-                                    <li class="dropdown notification-dropdown mr-n1">
-                                        <a href="#" class="dropdown-toggle nk-quick-nav-icon" data-toggle="dropdown">
-                                            <div class="icon-status icon-status-info"><em class="icon ni ni-bell"></em></div>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-xl dropdown-menu-right dropdown-menu-s1">
-                                            <div class="dropdown-head">
-                                                <span class="sub-title nk-dropdown-title">Notifications</span>
-                                                <a href="#">Mark All as Read</a>
-                                            </div>
-                                            <div class="dropdown-body">
-                                                <div class="nk-notification">
-                                                    <div class="nk-notification-item dropdown-inner">
-                                                        <div class="nk-notification-icon">
-                                                            <em class="icon icon-circle bg-warning-dim ni ni-curve-down-right"></em>
-                                                        </div>
-                                                        <div class="nk-notification-content">
-                                                            <div class="nk-notification-text">You have requested to <span>Widthdrawl</span></div>
-                                                            <div class="nk-notification-time">2 hrs ago</div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="nk-notification-item dropdown-inner">
-                                                        <div class="nk-notification-icon">
-                                                            <em class="icon icon-circle bg-success-dim ni ni-curve-down-left"></em>
-                                                        </div>
-                                                        <div class="nk-notification-content">
-                                                            <div class="nk-notification-text">Your <span>Deposit Order</span> is placed</div>
-                                                            <div class="nk-notification-time">2 hrs ago</div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="nk-notification-item dropdown-inner">
-                                                        <div class="nk-notification-icon">
-                                                            <em class="icon icon-circle bg-warning-dim ni ni-curve-down-right"></em>
-                                                        </div>
-                                                        <div class="nk-notification-content">
-                                                            <div class="nk-notification-text">You have requested to <span>Widthdrawl</span></div>
-                                                            <div class="nk-notification-time">2 hrs ago</div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="nk-notification-item dropdown-inner">
-                                                        <div class="nk-notification-icon">
-                                                            <em class="icon icon-circle bg-success-dim ni ni-curve-down-left"></em>
-                                                        </div>
-                                                        <div class="nk-notification-content">
-                                                            <div class="nk-notification-text">Your <span>Deposit Order</span> is placed</div>
-                                                            <div class="nk-notification-time">2 hrs ago</div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="nk-notification-item dropdown-inner">
-                                                        <div class="nk-notification-icon">
-                                                            <em class="icon icon-circle bg-warning-dim ni ni-curve-down-right"></em>
-                                                        </div>
-                                                        <div class="nk-notification-content">
-                                                            <div class="nk-notification-text">You have requested to <span>Widthdrawl</span></div>
-                                                            <div class="nk-notification-time">2 hrs ago</div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="nk-notification-item dropdown-inner">
-                                                        <div class="nk-notification-icon">
-                                                            <em class="icon icon-circle bg-success-dim ni ni-curve-down-left"></em>
-                                                        </div>
-                                                        <div class="nk-notification-content">
-                                                            <div class="nk-notification-text">Your <span>Deposit Order</span> is placed</div>
-                                                            <div class="nk-notification-time">2 hrs ago</div>
-                                                        </div>
-                                                    </div>
-                                                </div><!-- .nk-notification -->
-                                            </div><!-- .nk-dropdown-body -->
-                                            <div class="dropdown-foot center">
-                                                <a href="#">View All</a>
-                                            </div>
-                                        </div>
-                                    </li><!-- .dropdown -->
+                                   
                                 </ul><!-- .nk-quick-nav -->
                             </div><!-- .nk-header-tools -->
                         </div><!-- .nk-header-wrap -->
@@ -306,9 +215,7 @@
                                             
                                         </div>
                                     </li>
-                                    <li class="nav-item">
-                                        <a href="#" data-toggle="modal" data-target="#region" class="nav-link"><em class="icon ni ni-globe"></em><span class="ml-1">Select Region</span></a>
-                                    </li>
+                                  
                                 </ul>
                             </div>
                         </div>
@@ -324,128 +231,7 @@
 
     {% block modals %}
     <!-- select region modal -->
-    <div class="modal fade" tabindex="-1" role="dialog" id="region">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <a href="#" class="close" data-dismiss="modal"><em class="icon ni ni-cross-sm"></em></a>
-                <div class="modal-body modal-body-md">
-                    <h5 class="title mb-4">Select Your Country</h5>
-                    <div class="nk-country-region">
-                        <ul class="country-list text-center gy-2">
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{% static 'images/flags/arg.png' %}" alt="" class="country-flag">
-                                    <span class="country-name">Argentina</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{% static 'images/flags/aus.png' %}" alt="" class="country-flag">
-                                    <span class="country-name">Australia</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{% static 'images/flags/bangladesh.png' %}" alt="" class="country-flag">
-                                    <span class="country-name">Bangladesh</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{% static 'images/flags/canada.png' %}" alt="" class="country-flag">
-                                    <span class="country-name">Canada <small>(English)</small></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{% static 'images/flags/china.png' %}" alt="" class="country-flag">
-                                    <span class="country-name">Centrafricaine</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{% static 'images/flags/china.png' %}" alt="" class="country-flag">
-                                    <span class="country-name">China</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{% static 'images/flags/french.png' %}" alt="" class="country-flag">
-                                    <span class="country-name">France</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{% static 'images/flags/germany.png' %}" alt="" class="country-flag">
-                                    <span class="country-name">Germany</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{% static 'images/flags/iran.png' %}" alt="" class="country-flag">
-                                    <span class="country-name">Iran</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{% static 'images/flags/italy.png' %}" alt="" class="country-flag">
-                                    <span class="country-name">Italy</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{% static 'images/flags/mexico.png' %}" alt="" class="country-flag">
-                                    <span class="country-name">México</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{% static 'images/flags/philipine.png' %}" alt="" class="country-flag">
-                                    <span class="country-name">Philippines</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{% static 'images/flags/portugal.png' %}" alt="" class="country-flag">
-                                    <span class="country-name">Portugal</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{% static 'images/flags/s-africa.png' %}" alt="" class="country-flag">
-                                    <span class="country-name">South Africa</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{% static 'images/flags/spanish.png' %}" alt="" class="country-flag">
-                                    <span class="country-name">Spain</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{% static 'images/flags/switzerland.png' %}" alt="" class="country-flag">
-                                    <span class="country-name">Switzerland</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{% static 'images/flags/uk.png' %}" alt="" class="country-flag">
-                                    <span class="country-name">United Kingdom</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{% static 'images/flags/english.png' %}" alt="" class="country-flag">
-                                    <span class="country-name">United State</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div><!-- .modal-content -->
-        </div><!-- .modla-dialog -->
-    </div><!-- .modal -->
+    
 
     {% endblock modals %}
     <!-- JavaScript -->

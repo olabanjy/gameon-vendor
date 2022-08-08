@@ -20,33 +20,34 @@ from decimal import Decimal
 
 
 class Item(models.Model):
+    vendor = models.ForeignKey(
+        "users.Profile",
+        related_name="item_vendor",
+        null=True,
+        on_delete=models.CASCADE,
+    )
     name = models.CharField(max_length=200)
-    vendor = models.ForeignKey("users.Profile", on_delete=models.CASCADE)
-    platform = models.CharField(max_length=200)
-    cat = models.CharField(max_length=200)
-    type = models.CharField(max_length=200)
-    quantity = models.IntegerField(default=1)
+    platform = models.CharField(max_length=200, blank=True, null=True)
+    cat = models.CharField(max_length=200, blank=True, null=True)
+
+    numberInStock = models.IntegerField(default=1)
     displayImagePath = models.ImageField(
-        upload_to="vendor/gameon/shop/items/displayImagePath/",
+        upload_to="gameon/admin/shop/games/displayImagePath/",
         default="default_display_pics.jpg",
         blank=True,
     )
     bannerImagePath = models.ImageField(
-        upload_to="vendor/gameon/shop/items/bannerImagePath/",
+        upload_to="gameon/admin/shop/games/bannerImagePath/",
         default="default_banner_pics.jpg",
         blank=True,
     )
     thumbnailImagePath = models.ImageField(
-        upload_to="vendor/gameon/shop/items/thumbnailImagePath/",
+        upload_to="gameon/admin/shop/games/thumbnailImagePath/",
         default="default_thumbnail_pics.jpg",
         blank=True,
     )
-    itemTrailerVideo = models.FileField(
-        upload_to="vendor/gameon/shop/items/trailer/mp4/",
-        default="default_trailer_video.mp4",
-        blank=True,
-    )
     price = models.IntegerField()
+    desc = models.TextField(blank=True, null=True)
     discount_price = models.IntegerField(blank=True, null=True)
     admin_approved = models.BooleanField(default=False)
     created_at = models.DateTimeField(default=timezone.now)

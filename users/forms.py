@@ -82,6 +82,11 @@ class ProfileSetUpForm(forms.Form):
         widget=forms.TextInput(attrs={"class": "form-control", "id": "occupation"}),
     )
 
+    shop_name = forms.CharField(
+        required=True,
+        widget=forms.TextInput(attrs={"class": "form-control", "id": "shop_name"}),
+    )
+
     document_front = forms.FileField(
         required=True,
         widget=forms.FileInput(

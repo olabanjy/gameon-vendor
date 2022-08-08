@@ -4,4 +4,12 @@ from django.contrib.auth.decorators import login_required
 
 app_name = "rental"
 
-urlpatterns = []
+urlpatterns = [
+    path("item-list/", login_required(ItemList.as_view()), name="item-list"),
+    path("delete-item/<item_id>/", delete_item, name="delete-item"),
+    path(
+        "item-details/<item_id>/",
+        login_required(ItemDetail.as_view()),
+        name="item-details",
+    ),
+]

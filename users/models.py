@@ -28,10 +28,13 @@ class Profile(models.Model):
     phone_verified = models.BooleanField(default=False)
     first_name = models.CharField(blank=True, null=True, max_length=200)
     last_name = models.CharField(blank=True, null=True, max_length=200)
+    shop_name = models.CharField(blank=True, null=True, max_length=200)
     dob = models.DateField(max_length=100, blank=True, null=True)
     gender = models.CharField(max_length=200, blank=True, null=True)
     profile_set_up = models.BooleanField(default=False)
     dev_phase = models.CharField(max_length=200, choices=DEV_PHASE, default="beta")
+    onboarded = models.BooleanField(default=False)
+
     photo = models.ImageField(
         upload_to="gameon/vendor/user_profile/",
         default="default_profile_pics.jpg",

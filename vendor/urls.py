@@ -14,6 +14,10 @@ urlpatterns = [
 ]
 
 
+urlpatterns += [
+    path("api/v1/", include("vendor.api_router")),
+]
+
 if settings.DEBUG:
     import debug_toolbar
 

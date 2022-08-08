@@ -55,7 +55,7 @@ class SetUpProfile(View):
         return render(self.request, self.template, context)
 
     def post(self, request, *args, **kwargs):
-        pass
+
         form = ProfileSetUpForm(self.request.POST, self.request.FILES or None)
 
         try:
@@ -70,6 +70,7 @@ class SetUpProfile(View):
                 address_2 = form.cleaned_data.get("address_2")
                 city = form.cleaned_data.get("city")
                 state = form.cleaned_data.get("state")
+                shop_name = form.cleaned_data.get("shop_name")
                 print(phone)
 
                 doc_type = form.cleaned_data.get("doc_type")
@@ -78,6 +79,7 @@ class SetUpProfile(View):
 
                 profile.first_name = first_name
                 profile.last_name = last_name
+                profile.shop_name = shop_name
                 profile.phone = phone
                 profile.dob = dob
 
