@@ -9,7 +9,7 @@
         <meta name="author" content="SurveyBay">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="SurveyBay">
-        <link rel="shortcut icon" href="{% static 'images/logo/favicon.png' %}">
+        <link rel="shortcut icon" href="{% static 'images/icon.png' %}">
         <title>Onboarding|  SurveyBay </title>
         <!-- StyleSheets  -->
         <link rel="stylesheet" href="{% static 'assets/css/vendor_dashlite.css' %}?ver=2.8.0">
@@ -20,7 +20,12 @@
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"/>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
-       
+        <style type="text/css"> 
+            #sb_btn:disabled,
+            #sb_btn[disabled]{
+            background-color: grey;
+            }
+            </style>
 
 
 
@@ -41,8 +46,8 @@
                                     <div class="nk-block-head-content text-center">
                                         <div class="brand-logo pb-5">
                                             <a href="#" class="logo-link">
-                                                <img class="logo-light logo-img logo-img-md" src="{% static 'images/logo/full_black.png' %}" srcset="{% static 'images/logo/full_black.png' %} 2x" alt="logo" >
-                                                <img class="logo-dark logo-img logo-img-md" src="{% static 'images/logo/full_black.png' %}" srcset="{% static 'images/logo/full_black.png' %} 2x" alt="logo-dark" >
+                                                <img class="logo-light logo-img logo-img-lg" src="{% static 'images/icon.png' %}" srcset="{% static 'images/icon.png' %} 2x" alt="logo" >
+                                                <img class="logo-dark logo-img logo-img-lg" src="{% static 'images/icon.png' %}" srcset="{% static 'images/icon.png' %} 2x" alt="logo-dark" >
                                             </a>
                                           </div>
                                         <h3 class="nk-block-title fw-normal">You are almost in</h3>
@@ -284,7 +289,7 @@
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <div class="form-label-group">
-                                                                <label class="form-label"> Address Line 1<span class="text-danger">*</span></label>
+                                                                <label class="form-label"> Street Address<span class="text-danger">*</span></label>
                                                             </div>
                                                             <div class="form-control-group">
                                                                 {{form.address_1}}
@@ -307,7 +312,7 @@
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <div class="form-label-group">
-                                                                <label class="form-label"> Address Line 2<span class="text-danger">*</span></label>
+                                                                <label class="form-label"> Apartment/House Address<span class="text-danger">*</span></label>
                                                             </div>
                                                             <div class="form-control-group">
                                                                 {{form.address_2}}
@@ -460,7 +465,7 @@
                                                     <div class="custom-control custom-control-xs custom-checkbox">
                                                         {{form.t_and_c}}
                                                        
-                                                        <label class="custom-control-label" for="tc-agree">I Have Read The <a href="#" target="_blank">Terms Of Condition</a> And <a href="#" target="_blank">Privacy Policy</a></label>
+                                                        <label class="custom-control-label" for="tc-agree">I Have Read The <a href="https://gameon.com.ng/terms-and-conditions/" target="_blank">Terms Of Condition</a> And <a href="https://gameon.com.ng/privacy-and-policy/" target="_blank">Privacy Policy</a></label>
                                                     </div>
                                                 </div>
                                                 
@@ -500,6 +505,17 @@
     
     <script src="{% static 'assets/js/bundle.js' %}?ver=2.8.0"></script>
     <script src="{% static 'assets/js/vendor_scripts.js' %}?ver=2.8.0"></script>
+    <script type="text/javascript">
+        $(function () {
+            var t_and_c = $('#tc-agree');
+            var sb_btn = $('#sb_btn');
+        
+            t_and_c.on('change', function() {
+                sb_btn.prop("disabled", !this.checked);
+                }).trigger('change');
+        
+        });    
+    </script>
     <script>
 
         function getIp(callback) {
@@ -516,7 +532,7 @@
         const phoneInputField = document.querySelector("#phone");
         const phoneInput = window.intlTelInput(phoneInputField, {
             initialCountry: "auto",
-            // separateDialCode: "true",
+   
             geoIpLookup: getIp,
             utilsScript:
                 "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",

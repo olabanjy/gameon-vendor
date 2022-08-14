@@ -29,9 +29,6 @@ class ItemList(View):
 
     def get(self, request, *args, **kwargs):
 
-        # platform_base_url = "https://gameon-ng.herokuapp.com/api/v1/shop/item/platform/"
-        # cat_base_url = "https://gameon-ng.herokuapp.com/api/v1/shop/item/cat/"
-
         cat_base_url = f"{settings.CLIENT_BASE_URL}shop/item/cat/"
 
         cat = requests.get(f"{cat_base_url}")

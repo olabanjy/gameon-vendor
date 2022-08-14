@@ -9,12 +9,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Game On Vendor Platform">
     <!-- Fav Icon  -->
-    <link rel="shortcut icon" href="./images/favicon.png">
+    <link rel="shortcut icon" href="{% static 'images/icon.png' %}">
     <!-- Page Title  -->
     <title>Create Account | GameOn Partners</title>
     <!-- StyleSheets  -->
     <link rel="stylesheet" href="{% static 'assets/css/vendor_dashlite.css' %}?ver=2.9.0">
     <link id="skin-default" rel="stylesheet" href="{% static 'assets/css/theme.css' %}?ver=2.9.0">
+    <style type="text/css"> 
+    #sb_btn:disabled,
+	#sb_btn[disabled]{
+	background-color: grey;
+	}
+    </style>
 </head>
 
 <body class="nk-body bg-white npc-general pg-auth">
@@ -83,12 +89,12 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="custom-control custom-control-xs custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="checkbox">
-                                            <label class="custom-control-label" for="checkbox">I agree to GameOn <a href="#">Privacy Policy</a> &amp; <a href="#"> Terms.</a></label>
+                                            <input type="checkbox" class="custom-control-input t_and_c" id="checkbox">
+                                            <label class="custom-control-label" for="checkbox">I agree to GameOn <a href="#">Privacy Policy</a> </label>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <button class="btn btn-lg btn-primary btn-block">Proceed</button>
+                                        <button id="sb_btn" class="btn btn-lg btn-primary btn-block">Proceed</button>
                                     </div>
                                 </form>
                                 <div class="form-note-s2 text-center pt-4"> Already have an account? <a href="{{ login_url }}"><strong>Sign in instead</strong></a>
@@ -104,14 +110,12 @@
                                 <div class="col-lg-6 order-lg-last">
                                     <ul class="nav nav-sm justify-content-center justify-content-lg-end">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Terms & Condition</a>
+                                            <a class="nav-link" href="https://gameon.com.ng/terms-and-conditions/">Terms & Condition</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Privacy Policy</a>
+                                            <a class="nav-link" href="https://gameon.com.ng/privacy-and-policy/">Privacy Policy</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Help</a>
-                                        </li>
+                                      
 
                                     </ul>
                                 </div>
@@ -135,6 +139,18 @@
     <script src="{% static 'assets/js/bundle.js' %}?ver=2.9.0"></script>
     <script src="{% static 'assets/js/vendor_scripts.js' %}?ver=2.9.0"></script>
     <!-- select region modal -->
+
+    <script type="text/javascript">
+        $(function () {
+            var t_and_c = $('.t_and_c');
+            var sb_btn = $('#sb_btn');
+        
+            t_and_c.on('change', function() {
+                sb_btn.prop("disabled", !this.checked);
+                }).trigger('change');
+        
+        });    
+    </script>
     
 
 </html>

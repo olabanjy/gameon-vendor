@@ -37,7 +37,7 @@ class Profile(models.Model):
 
     photo = models.ImageField(
         upload_to="gameon/vendor/user_profile/",
-        default="default_profile_pics.jpg",
+        null=True,
         blank=True,
     )
     created_at = models.DateTimeField(default=timezone.now)
@@ -156,3 +156,17 @@ class UserKYC(models.Model):
 
     class Meta:
         ordering = ("-created_at",)
+
+
+class UserBankAccount(models.Model):
+    user = models.ForeignKey(
+        Profile, on_delete=models.CASCADE, related_name="user_bank"
+    )
+    account_number = models.CharField(max_length=11)
+    account_name = models.CharField(max_length=100)
+    account_bank = models.CharField(max_length=100)
+    account_bank_code = models.CharField(max_length=15, null=True)
+    created_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f"{self.user}"

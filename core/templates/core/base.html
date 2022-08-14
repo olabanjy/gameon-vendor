@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="GameOn">
     <!-- Fav Icon  -->
-    <link rel="shortcut icon" href="{% static 'images/logo/favicon.png' %}">
+    <link rel="shortcut icon" href="{% static 'images/icon.png' %}">
     <!-- Page Title  -->
     <title>{{page_title}} | GameOn Vendor</title>
     <!-- StyleSheets  -->
@@ -27,8 +27,8 @@
                 <div class="nk-sidebar-element nk-sidebar-head">
                     <div class="nk-sidebar-brand">
                         <a href="#" class="logo-link nk-sidebar-logo">
-                            <img class="logo-light logo-img" src="{% static 'images/logo/logo.png' %}" srcset="{% static 'images/logo/logo.png' %} 2x" alt="logo">
-                            <img class="logo-dark logo-img" src="{% static 'images/logo/logo.png' %}" srcset="{% static 'images/logo/logo.png' %} 2x" alt="logo-dark">
+                            <img class="logo-light logo-img logo-img-lg" src="{% static 'images/logo/logo.png' %}" srcset="{% static 'images/logo/logo.png' %} 2x" alt="logo">
+                            <img class="logo-dark logo-img logo-img-lg" src="{% static 'images/logo/logo.png' %}" srcset="{% static 'images/logo/logo.png' %} 2x" alt="logo-dark">
                         </a>
                     </div>
                     <div class="nk-menu-trigger mr-n2">
@@ -96,7 +96,7 @@
                                     </li><!-- .nk-menu-heading -->
                                    
                                     <li class="nk-menu-item">
-                                        <a href="#" class="nk-menu-link">
+                                        <a href="{% url 'users:account-settings' %}" class="nk-menu-link">
                                             <span class="nk-menu-icon"><em class="icon ni ni-files"></em></span>
                                             <span class="nk-menu-text">Account Settings</span>
                                         </a>
@@ -140,8 +140,8 @@
                             </div>
                             <div class="nk-header-brand d-xl-none">
                                 <a href="/" class="logo-link">
-                                    <img class="logo-light logo-img" src="{% static 'images/logo/logo.png' %}" srcset="{% static 'images/logo/logo.png' %} 2x" alt="logo">
-                                    <img class="logo-dark logo-img" src="{% static 'images/logo/logo.png' %}" srcset="{% static 'images/logo/logo.png' %} 2x" alt="logo-dark">
+                                    <img class="logo-light logo-img logo-img-lg" src="{% static 'images/logo/logo.png' %}" srcset="{% static 'images/logo/logo.png' %} 2x" alt="logo">
+                                    <img class="logo-dark logo-img logo-img-lg" src="{% static 'images/logo/logo.png' %}" srcset="{% static 'images/logo/logo.png' %} 2x" alt="logo-dark">
                                 </a>
                             </div><!-- .nk-header-brand -->
                             
@@ -151,8 +151,9 @@
                                     <li class="dropdown user-dropdown">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                             <div class="user-toggle">
-                                                <div class="user-avatar sm">
+                                                <div class="user-avatar">
                                                     <em class="icon ni ni-user-alt"></em>
+                                                    <!-- <img  src="{% if request.user.profile.photo %}{{request.user.profile.photo.url}}{% endif %}" width="70%" height="auto" alt="">  -->
                                                 </div>
                                                 <div class="user-info d-none d-md-block">
                                                     <div class="user-status">{{request.user.profile.vendor_code}}</div>
@@ -163,8 +164,8 @@
                                         <div class="dropdown-menu dropdown-menu-md dropdown-menu-right dropdown-menu-s1">
                                             <div class="dropdown-inner user-card-wrap bg-lighter d-none d-md-block">
                                                 <div class="user-card">
-                                                    <div class="user-avatar">
-                                                        <span>GV</span>
+                                                    <div >
+                                                        <img  src="{% if request.user.profile.photo %}{{request.user.profile.photo.url}}{% endif %}" width="70%" height="auto" alt=""> 
                                                     </div>
                                                     <div class="user-info">
                                                         <span class="lead-text">{{request.user.profile.first_name}} {{request.user.profile.last_name}}</span>
@@ -175,9 +176,9 @@
                                             <div class="dropdown-inner">
                                                 <ul class="link-list">
 
-                                                    <li><a href="#"><em class="icon ni ni-setting-alt"></em><span>Account Setting</span></a></li>
+                                                    <li><a href="{% url 'users:account-settings' %}"><em class="icon ni ni-setting-alt"></em><span>Account Setting</span></a></li>
      
-                                                    <li><a class="dark-switch" href="#"><em class="icon ni ni-moon"></em><span>Dark Mode</span></a></li>
+                                                    <!-- <li><a class="dark-switch" href="#"><em class="icon ni ni-moon"></em><span>Dark Mode</span></a></li> -->
                                                 </ul>
                                             </div>
                                             <div class="dropdown-inner">
@@ -205,7 +206,7 @@
                 <div class="nk-footer">
                     <div class="container-fluid">
                         <div class="nk-footer-wrap">
-                            <div class="nk-footer-copyright">  &copy; <script>document.write(new Date().getFullYear());</script> GameOn Partners. 
+                            <div class="nk-footer-copyright">  &copy; <script>document.write(new Date().getFullYear());</script> GameOn Partners. Developed by <a target="_blank" href="https://blacktreeng.com"> BlackTree </a>
                             </div>
                             <div class="nk-footer-links">
                                 <ul class="nav nav-sm">

@@ -9,4 +9,9 @@ urlpatterns = [
     path(
         "profile-set-up/", login_required(SetUpProfile.as_view()), name="profile-set-up"
     ),
+    path(
+        "account-settings",
+        login_required(AccountSettings.as_view()),
+        name="account-settings",
+    ),
 ]

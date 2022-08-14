@@ -127,3 +127,57 @@ class SetUpProfile(View):
         except:
             print("Unexpected Error")
             raise
+
+
+class AccountSettings(View):
+    template = "users/user_profile.html"
+
+    def get(self, request, *args, **kwargs):
+
+        if self.request.user.profile.profile_set_up == False:
+            return redirect("/u/profile-set-up")
+
+        user_ad = Address.objects.filter(user=request.user.profile).first()
+        form = AccountSettingsForm()
+        context = {"user_ad": user_ad, "form": form}
+        return render(self.request, self.template, context)
+
+    def post(self, request):
+
+        form = AccountSettingsForm(self.request.POST, self.request.FILES or None)
+
+        try:
+            profile = Profile.objects.get(user=self.request.user)
+
+            if form.is_valid():
+                phone = form.cleaned_data.get("phone")
+                address_1 = form.cleaned_data.get("address_1")
+                address_2 = form.cleaned_data.get("address_2")
+                city = form.cleaned_data.get("city")
+                state = form.cleaned_data.get("state")
+                shop_name = form.cleaned_data.get("shop_name")
+                photo = form.cleaned_data.get("photo")
+                print("photo is", photo)
+
+                profile.shop_name = shop_name
+                profile.phone = phone
+                if photo:
+                    profile.photo = photo
+                profile.save()
+                vendor_address = Address.objects.filter(user=profile).first()
+
+                vendor_address.street_address = address_1
+                vendor_address.apartment_address = address_2
+                vendor_address.city = city
+                vendor_address.state = state
+                vendor_address.save()
+
+                return HttpResponseRedirect(reverse("users:account-settings"))
+
+        except (ValueError, NameError, TypeError) as error:
+            err_msg = str(error)
+            print(err_msg)
+            return render(self.request, self.template, {"form": form})
+        except:
+            print("Unexpected Error")
+            raise

@@ -158,3 +158,72 @@ class ProfileSetUpForm(forms.Form):
             raise forms.ValidationError(err_msg)
             return cleaned_data
             print(err_msg)
+
+
+class AccountSettingsForm(forms.Form):
+    shop_name = forms.CharField(
+        required=True,
+        widget=forms.TextInput(
+            attrs={"class": "form-control form-control-lg", "id": "shop_name"}
+        ),
+    )
+    address_1 = forms.CharField(
+        required=True,
+        widget=forms.TextInput(attrs={"class": "form-control form-control-lg"}),
+    )
+
+    address_2 = forms.CharField(
+        required=True,
+        widget=forms.TextInput(attrs={"class": "form-control form-control-lg"}),
+    )
+
+    city = forms.CharField(
+        required=True,
+        widget=forms.TextInput(attrs={"class": "form-control", "id": "city"}),
+    )
+
+    state = forms.CharField(
+        required=True,
+        widget=forms.TextInput(attrs={"class": "form-control", "id": "state"}),
+    )
+    phone = forms.CharField(
+        required=True,
+        widget=forms.TextInput(
+            attrs={
+                "class": "form-control form-control-lg",
+                "id": "phone",
+                "type": "tel",
+            }
+        ),
+    )
+    photo = forms.FileField(
+        required=False,
+        widget=forms.FileInput(
+            attrs={
+                "id": "photo",
+                "accept": ".jpg, .png, .jpeg",
+                "class": "photo",
+            }
+        ),
+    )
+
+    def clean(self):
+        cleaned_data = super().clean()
+        photo = cleaned_data.get("photo")
+        try:
+            if photo:
+                if not photo.name.endswith((".png", ".jpg", ".jpeg")):
+                    raise forms.ValidationError(
+                        "Wrong File format, must be or .png or .jpg"
+                    )
+                if photo.size > 5242880:
+                    raise forms.ValidationError(
+                        f"File is too large. Size should not be more than 1MB"
+                    )
+
+            return cleaned_data
+
+        except (ValueError, NameError, TypeError, ImportError, IndexError) as error:
+            err_msg = str(error)
+            print(err_msg)
+            raise forms.ValidationError(err_msg)

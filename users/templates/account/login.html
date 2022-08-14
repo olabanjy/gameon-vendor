@@ -12,7 +12,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Game On">
     <!-- Fav Icon  -->
-    <link rel="shortcut icon" href="./images/favicon.png">
+    <!-- <link rel="shortcut icon" href="./images/favicon.png"> -->
+    <link rel="shortcut icon" href="{% static 'images/icon.png' %}">
     <!-- Page Title  -->
     <title>Login | GameOn Vendor</title>
     <!-- StyleSheets  -->
@@ -98,6 +99,18 @@
                                 </form>
                                 <div class="form-note-s2 text-center pt-4"> Don't have an account? <a href="{{signup_url}}">Create an account</a>
                                 </div>
+
+                                <div>
+                                    {% if form.errors %}
+                                      
+                                      {% for error in form.non_field_errors %}
+                                      <div class="nk-kycfm-note">
+                                        <em class="icon ni ni-info-fill" data-toggle="tooltip" data-placement="right" title="{{ error|escape }}"></em>
+                                        <p style="color: red !important;">{{ error|escape }}</p>
+                                    </div>
+                                      {% endfor %}
+                                    {% endif %}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -107,14 +120,12 @@
                                 <div class="col-lg-6 order-lg-last">
                                     <ul class="nav nav-sm justify-content-center justify-content-lg-end">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Terms & Condition</a>
+                                            <a class="nav-link" href="https://gameon.com.ng/terms-and-conditions/">Terms & Condition</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Privacy Policy</a>
+                                            <a class="nav-link" href="https://gameon.com.ng/privacy-and-policy/">Privacy Policy</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Help</a>
-                                        </li>
+                                      
 
                                     </ul>
                                 </div>
