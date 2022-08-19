@@ -202,7 +202,7 @@ class AccountSettingsForm(forms.Form):
             attrs={
                 "id": "photo",
                 "accept": ".jpg, .png, .jpeg",
-                "class": "photo",
+                "class": "photo form-control form-control-lg",
             }
         ),
     )

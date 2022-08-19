@@ -133,6 +133,13 @@
                             {% csrf_token %}
                         <div class="tab-pane active" id="personal">
                             <div class="row gy-4">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label class="form-label" for="photo">Profile Photo</label> <br>
+                                        {{form.photo}}
+                                    </div>
+                                </div>
+
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="form-label" for="shop_name">Shop Name</label>
@@ -169,13 +176,8 @@
                                         <input type="text" class="form-control form-control-lg" name="state" id="state" value="{{user_ad.state}}">
                                     </div>
                                 </div>
-
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <label class="form-label" for="photo">Profile Photo</label>
-                                        {{form.photo}}
-                                    </div>
-                                </div>
+                                
+                               
                                
                                 <div class="col-12">
                                     <ul class="align-center flex-wrap flex-sm-nowrap gx-4 gy-2">
