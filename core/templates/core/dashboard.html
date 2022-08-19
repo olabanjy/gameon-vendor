@@ -1,6 +1,7 @@
 {% extends "core/base.html" %}
 
 {% load static %}
+{% load humanize %}
 
 
 {% block content %}
@@ -50,7 +51,7 @@
                                     <div class="card-inner">
                                         <div class="card-title-group align-start mb-2">
                                             <div class="card-title">
-                                                <h6 class="title">Sales Revenue</h6>
+                                                <h6 class="title">Rental Sales Revenue</h6>
                                         
                                             </div>
                                             <div class="card-tools">
@@ -64,20 +65,53 @@
                                             
                                             <div class="nk-sale-data-group flex-md-nowrap g-4">
                                                 <div class="nk-sale-data">
-                                                    <span class="amount">₦14,299.59 </span>
+                                                    <span class="amount">₦{{rentalOrderRev|intcomma}} </span>
                                                     <span class="sub-title">On Rentals</span>
                                                 </div>
+                                                <!-- <div class="nk-sale-data">
+                                                    <span class="amount">₦{{shopOrderRev|intcomma}} </span>
+                                                    <span class="sub-title">On Shop</span>
+                                                </div> -->
+                                            </div>
+
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <!-- ggdgdgdg -->
+                                <div class="card card-bordered">
+                                    <div class="card-inner">
+                                        <div class="card-title-group align-start mb-2">
+                                            <div class="card-title">
+                                                <h6 class="title">Shop Sales Revenue</h6>
+                                        
+                                            </div>
+                                            <div class="card-tools">
+                                                <em class="card-hint icon ni ni-help-fill" data-toggle="tooltip" data-placement="left" title=""></em>
+                                            </div>
+                                        </div>
+                                        <!-- <div  style="height: 40%;">
+
+                                        </div> -->
+                                        <div class="align-end gy-3 gx-5 flex-wrap flex-md-nowrap flex-lg-wrap flex-xxl-nowrap">
+                                            
+                                            <div class="nk-sale-data-group flex-md-nowrap g-4">
+                                                <!-- <div class="nk-sale-data">
+                                                    <span class="amount">₦{{rentalOrderRev|intcomma}} </span>
+                                                    <span class="sub-title">On Rentals</span>
+                                                </div> -->
                                                 <div class="nk-sale-data">
-                                                    <span class="amount">₦7,299.59 </span>
+                                                    <span class="amount">₦{{shopOrderRev|intcomma}} </span>
                                                     <span class="sub-title">On Shop</span>
                                                 </div>
                                             </div>
 
-                                            <br><br>
 
-                                            <div class="nk-sales-ck sales-revenue">
-                                                <!-- <canvas class="sales-bar-chart" id="salesRevenue"></canvas> -->
-                                            </div>
+                                          
+
+                                            
                                             
                                            
                                         </div>
@@ -99,7 +133,7 @@
                                                 </div>
                                                 <div class="align-end flex-sm-wrap g-4 flex-md-nowrap">
                                                     <div class="nk-sale-data">
-                                                        <span class="amount">₦9.69K</span>
+                                                        <span class="amount">{{rentalOrderCount}}</span>
 
                                                     </div>
                                                   
@@ -120,7 +154,7 @@
                                                 </div>
                                                 <div class="align-end flex-sm-wrap g-4 flex-md-nowrap">
                                                     <div class="nk-sale-data">
-                                                        <span class="amount">₦346.2</span>
+                                                        <span class="amount">{{shopOrderCount}} </span>
     
                                                     </div>
                                                   

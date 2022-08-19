@@ -64,6 +64,14 @@
                                                         </div>
                                                         <div class="data-col data-col-end"><span class="data-more"><em class="icon ni ni-forward-ios"></em></span></div>
                                                     </div><!-- data-item -->
+
+                                                    <div class="data-item" data-toggle="modal" data-target="#profile-edit">
+                                                        <div class="data-col">
+                                                            <span class="data-label">Profile Picture</span>
+                                                            <span class="data-value text-soft">  Update Profile Picture </span>
+                                                        </div>
+                                                        <div class="data-col data-col-end"><span class="data-more"><em class="icon ni ni-forward-ios"></em></span></div>
+                                                    </div><!-- data-item -->
                                                     
                                                     <div class="data-item" data-toggle="modal" data-target="#profile-edit" data-tab-target="#address">
                                                         <div class="data-col">
@@ -86,6 +94,18 @@
                                                         <div class="user-info">
                                                             <span class="lead-text">{{request.user.profile.first_name}}  {{request.user.profile.last_name}}</span>
                                                             <span class="sub-text">{{request.user.email}}</span>
+                                                        </div>
+
+                                                        <div class="user-action">
+                                                            <div class="dropdown">
+                                                                <a class="btn btn-icon btn-trigger mr-n2" data-toggle="dropdown" href="#"><em class="icon ni ni-more-v"></em></a>
+                                                                <div class="dropdown-menu dropdown-menu-right">
+                                                                    <ul class="link-list-opt no-bdr">
+                                                                        <li><a href="#" data-toggle="modal" data-target="#profile-edit" ><em class="icon ni ni-camera-fill"></em><span>Change Photo</span></a></li>
+                                                                        <li><a href="#" data-toggle="modal" data-target="#profile-edit" ><em class="icon ni ni-edit-fill"></em><span>Update Profile</span></a></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                         
                                                     </div><!-- .user-card -->

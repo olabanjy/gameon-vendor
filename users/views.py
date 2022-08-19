@@ -1,3 +1,4 @@
+from os import stat
 from django import template
 from django.contrib import messages
 from django.conf import settings
@@ -159,17 +160,24 @@ class AccountSettings(View):
                 photo = form.cleaned_data.get("photo")
                 print("photo is", photo)
 
-                profile.shop_name = shop_name
-                profile.phone = phone
+                if shop_name:
+                    profile.shop_name = shop_name
+                if phone:
+                    profile.phone = phone
                 if photo:
                     profile.photo = photo
+
                 profile.save()
                 vendor_address = Address.objects.filter(user=profile).first()
 
-                vendor_address.street_address = address_1
-                vendor_address.apartment_address = address_2
-                vendor_address.city = city
-                vendor_address.state = state
+                if address_1:
+                    vendor_address.street_address = address_1
+                if address_2:
+                    vendor_address.apartment_address = address_2
+                if city:
+                    vendor_address.city = city
+                if state:
+                    vendor_address.state = state
                 vendor_address.save()
 
                 return HttpResponseRedirect(reverse("users:account-settings"))
@@ -180,4 +188,4 @@ class AccountSettings(View):
             return render(self.request, self.template, {"form": form})
         except:
             print("Unexpected Error")
-            raise
+            return render(self.request, self.template, {"form": form})
