@@ -159,19 +159,20 @@ def delete_item(request, item_id):
         return redirect("rental:item-list")
 
 
-# import time
+import time
 
 
-# @login_required
-# def my_shop_orders(request):
-#     template = "shop/shop_orders.html"
-#     vendor_code = request.user.profile.vendor_code
-#     orders = requests.get(
-#         f"{settings.CLIENT_BASE_URL}shop/item/order/get_vendor_orders/?vendor_code={vendor_code}&timestamp={time.time()}"
-#     )
-#     print(orders.json())
-#     context = {"orders": orders.json()}
-#     return render(request, template, context)
+@login_required
+def my_rental_orders(request):
+    template = "rental/rental_orders.html"
+    vendor_code = request.user.profile.vendor_code
+    print(vendor_code)
+    orders = requests.get(
+        f"{settings.CLIENT_BASE_URL}rental/que/get_vendor_orders/?vendor_code={vendor_code}&timestamp={time.time()}"
+    )
+    print(orders.json())
+    context = {"orders": orders.json()}
+    return render(request, template, context)
 
 
 # # @login_required

@@ -12,4 +12,5 @@ urlpatterns = [
         login_required(ItemDetail.as_view()),
         name="item-details",
     ),
+    path("rental-orders/", my_rental_orders, name="rental-orders"),
 ]
