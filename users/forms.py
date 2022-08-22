@@ -216,10 +216,10 @@ class AccountSettingsForm(forms.Form):
                     raise forms.ValidationError(
                         "Wrong File format, must be or .png or .jpg"
                     )
-                if photo.size > 5242880:
-                    raise forms.ValidationError(
-                        f"File is too large. Size should not be more than 1MB"
-                    )
+                # if photo.size > 5242880:
+                #     raise forms.ValidationError(
+                #         f"File is too large. Size should not be more than 1MB"
+                #     )
 
             return cleaned_data
 
