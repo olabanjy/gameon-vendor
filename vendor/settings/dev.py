@@ -4,8 +4,8 @@ from celery.schedules import crontab
 
 DEBUG = True
 
-# ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ["147.182.215.53", "vendor.gameon.com.ng"]
+ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = ["147.182.215.53", "vendor.gameon.com.ng"]
 
 
 INSTALLED_APPS += [
@@ -53,7 +53,7 @@ DATABASES = {
 
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = "smtp.sendgrid.net"
+EMAIL_HOST = "smtp.zoho.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
