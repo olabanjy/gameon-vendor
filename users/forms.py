@@ -62,10 +62,10 @@ class ProfileSetUpForm(forms.Form):
         widget=forms.TextInput(attrs={"class": "form-control form-control-lg"}),
     )
 
-    address_2 = forms.CharField(
-        required=True,
-        widget=forms.TextInput(attrs={"class": "form-control form-control-lg"}),
-    )
+    # address_2 = forms.CharField(
+    #     required=True,
+    #     widget=forms.TextInput(attrs={"class": "form-control form-control-lg"}),
+    # )
 
     city = forms.CharField(
         required=True,
@@ -77,10 +77,10 @@ class ProfileSetUpForm(forms.Form):
         widget=forms.TextInput(attrs={"class": "form-control", "id": "state"}),
     )
 
-    occupation = forms.CharField(
-        required=True,
-        widget=forms.TextInput(attrs={"class": "form-control", "id": "occupation"}),
-    )
+    # occupation = forms.CharField(
+    #     required=False,
+    #     widget=forms.TextInput(attrs={"class": "form-control", "id": "occupation"}),
+    # )
 
     shop_name = forms.CharField(
         required=True,
@@ -172,10 +172,10 @@ class AccountSettingsForm(forms.Form):
         widget=forms.TextInput(attrs={"class": "form-control form-control-lg"}),
     )
 
-    address_2 = forms.CharField(
-        required=True,
-        widget=forms.TextInput(attrs={"class": "form-control form-control-lg"}),
-    )
+    # address_2 = forms.CharField(
+    #     required=True,
+    #     widget=forms.TextInput(attrs={"class": "form-control form-control-lg"}),
+    # )
 
     city = forms.CharField(
         required=True,

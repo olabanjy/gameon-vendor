@@ -52,7 +52,7 @@
                                           </div>
                                         <h3 class="nk-block-title fw-normal">You are almost in</h3>
                                         <div class="nk-block-des">
-                                            <p>Let us know more about you and you, we will use this to set up your shop </p>
+                                            <p>Let us know more about you, we will use this to set up your shop </p>
                                         </div>
                                     </div>
                                 </div><!-- nk-block -->
@@ -221,7 +221,7 @@
                                                 
                                                 <div class="row g-4">
 
-                                                    <div class="col-md-12">
+                                                    <div class="col-md-6">
                                                         <div class="form-group">
                                                             <div class="form-label-group">
                                                                 <label class="form-label">Shop Name <span class="text-danger">*</span> </label>
@@ -235,8 +235,31 @@
                                                         </div>
                                                     </div>
 
+
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <div class="form-label-group">
+                                                                <label class="form-label"> Shop Address<span class="text-danger">*</span></label>
+                                                            </div>
+                                                            <div class="form-control-group">
+                                                                {{form.address_1}}
+                                                               
+                                                            </div>
+                                                            <div>
+                                                                {% if form.address_1.errors %}
+                                                                        {% for error in form.address_1.errors %}
+                                                                        <div class="nk-kycfm-note">
+                                                                            <em class="icon ni ni-info-fill" data-toggle="tooltip" data-placement="right" title="{{ error|escape }}"></em>
+                                                                            <p style="color: red !important;">{{ error|escape }}</p>
+                                                                        </div>
+                                                                        {% endfor %}
+                                                                {% endif %}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
                                                     
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-6">
                                                         <div class="form-group">
                                                             <div class="form-label-group">
                                                                 <label class="form-label">City <span class="text-danger">*</span></label>
@@ -257,7 +280,7 @@
                                                             </div>
                                                         </div>
                                                     </div><!-- .col -->
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-6">
                                                         <div class="form-group">
                                                             <div class="form-label-group">
                                                                 <label class="form-label">State <span class="text-danger">*</span></label>
@@ -278,66 +301,13 @@
                                                             </div>
                                                         </div>
                                                     </div><!-- .col -->
-                                                    <div class="col-md-4">
-                                                        <div class="form-group">
-                                                            <div class="form-label-group">
-                                                                <label class="form-label">Occupation <span class="text-danger">*</span> </label>
-                                                            </div>
-                                                            <div class="form-control-group">
-                                                                {{form.occupation}}
-                                                              
-                                                            </div>
-                                                            
-                                                           
-                                                        </div>
-                                                    </div>
+                                                   
 
                                                     
 
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <div class="form-label-group">
-                                                                <label class="form-label"> Street Address<span class="text-danger">*</span></label>
-                                                            </div>
-                                                            <div class="form-control-group">
-                                                                {{form.address_1}}
-                                                               
-                                                            </div>
-                                                            <div>
-                                                                {% if form.address_1.errors %}
-                                                                        {% for error in form.address_1.errors %}
-                                                                        <div class="nk-kycfm-note">
-                                                                            <em class="icon ni ni-info-fill" data-toggle="tooltip" data-placement="right" title="{{ error|escape }}"></em>
-                                                                            <p style="color: red !important;">{{ error|escape }}</p>
-                                                                        </div>
-                                                                        {% endfor %}
-                                                                {% endif %}
-                                                            </div>
-                                                        </div>
-                                                    </div><!-- .col -->
 
 
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <div class="form-label-group">
-                                                                <label class="form-label"> Apartment/House Address<span class="text-danger">*</span></label>
-                                                            </div>
-                                                            <div class="form-control-group">
-                                                                {{form.address_2}}
-                                                               
-                                                            </div>
-                                                            <div>
-                                                                {% if form.address_2.errors %}
-                                                                        {% for error in form.address_2.errors %}
-                                                                        <div class="nk-kycfm-note">
-                                                                            <em class="icon ni ni-info-fill" data-toggle="tooltip" data-placement="right" title="{{ error|escape }}"></em>
-                                                                            <p style="color: red !important;">{{ error|escape }}</p>
-                                                                        </div>
-                                                                        {% endfor %}
-                                                                {% endif %}
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                    
               
                                                 </div>
                                             </div>
@@ -347,15 +317,12 @@
                                                 <div class="nk-kycfm-count">03</div>
                                                 <div class="nk-kycfm-title">
                                                     <h5 class="title">Identity Verification</h5>
-                                                    <p class="sub-title">To verify your identity, please upload any of your document.</p>
+                                                    <p class="sub-title">In order to complete registration, please upload any of your documents.</p>
                                                 </div>
                                             </div><!-- nk-kycfm-head -->
                     
                                             <div class="nk-kycfm-content">
-                                                <div class="nk-kycfm-note">
-                                                    <em class="icon ni ni-info-fill" data-toggle="tooltip" data-placement="right" title="Tooltip on right"></em>
-                                                    <p>In order to complete, please upload any of the following personal document.</p>
-                                                </div>
+                                              
                                                 <ul class="nk-kycfm-control-list g-3">
                                                     <li class="nk-kycfm-control-item">
                                                         <input class="nk-kycfm-control id_passport" type="radio" value="0" name="doc_type" id="id_doc_type_0" data-title="Passport" >

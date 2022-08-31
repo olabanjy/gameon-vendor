@@ -68,7 +68,7 @@ class SetUpProfile(View):
                 phone = form.cleaned_data.get("phone")
                 dob = form.cleaned_data.get("dob")
                 address_1 = form.cleaned_data.get("address_1")
-                address_2 = form.cleaned_data.get("address_2")
+                # address_2 = form.cleaned_data.get("address_2")
                 city = form.cleaned_data.get("city")
                 state = form.cleaned_data.get("state")
                 shop_name = form.cleaned_data.get("shop_name")
@@ -87,7 +87,7 @@ class SetUpProfile(View):
                 vendor_address, created = Address.objects.get_or_create(user=profile)
 
                 vendor_address.street_address = address_1
-                vendor_address.apartment_address = address_2
+                # vendor_address.apartment_address = address_2
                 vendor_address.city = city
                 vendor_address.state = state
                 vendor_address.save()
@@ -127,7 +127,7 @@ class SetUpProfile(View):
             return render(self.request, self.template, {"form": form})
         except:
             print("Unexpected Error")
-            raise
+            return render(self.request, self.template, {"form": form})
 
 
 class AccountSettings(View):
@@ -153,7 +153,7 @@ class AccountSettings(View):
             if form.is_valid():
                 phone = form.cleaned_data.get("phone")
                 address_1 = form.cleaned_data.get("address_1")
-                address_2 = form.cleaned_data.get("address_2")
+                # address_2 = form.cleaned_data.get("address_2")
                 city = form.cleaned_data.get("city")
                 state = form.cleaned_data.get("state")
                 shop_name = form.cleaned_data.get("shop_name")
@@ -172,8 +172,7 @@ class AccountSettings(View):
 
                 if address_1:
                     vendor_address.street_address = address_1
-                if address_2:
-                    vendor_address.apartment_address = address_2
+
                 if city:
                     vendor_address.city = city
                 if state:
