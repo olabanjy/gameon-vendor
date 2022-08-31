@@ -4,8 +4,8 @@ from celery.schedules import crontab
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
-# ALLOWED_HOSTS = ["147.182.215.53", "vendor.gameon.com.ng"]
+# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["147.182.215.53", "vendor.gameon.com.ng"]
 
 
 INSTALLED_APPS += [
@@ -16,7 +16,7 @@ INSTALLED_APPS += [
 MIDDLEWARE += [
     # "debug_toolbar.middleware.DebugToolbarMiddleware",
     "django_user_agents.middleware.UserAgentMiddleware",
-    "ipinfo_django.middleware.IPinfo",
+    # "ipinfo_django.middleware.IPinfo",
 ]
 
 # DEBUG_TOOLBAR_PANELS = [
