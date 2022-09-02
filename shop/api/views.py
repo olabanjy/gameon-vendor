@@ -37,6 +37,19 @@ class ItemsViewSet(ModelViewSet):
         )
         return Response(serializer.data, status=status.HTTP_200_OK)
 
+    @action(methods=["GET"], detail=False)
+    def get_list(self, request):
+        all_items = Item.objects.all()
+
+        for val in all_items:
+            print(val.name)
+
+        serializer = ItemSerializer(all_items, many=True)
+
+        response = Response(serializer.data, status=status.HTTP_200_OK)
+        response["Cache-Control"] = "no-cache"
+        return response
+
     @action(methods=["POST"], detail=False)
     def approve_item(self, request):
         try:
