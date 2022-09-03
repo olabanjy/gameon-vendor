@@ -18,6 +18,14 @@
                         <h3 class="nk-block-title page-title">Item List</h3>
                     </div><!-- .nk-block-head-content -->
 
+                    {% if messages %}
+                    <ul class="messages text-center">
+                        {% for message in messages %}
+                        <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+
                     
 
                     <div class="nk-block-head-content">
