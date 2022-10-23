@@ -69,14 +69,28 @@
                                             </div>
 
                                           
-                                        </div><!-- .product-info -->
+                                        </div>
+                                        {% if the_game.admin_approved == True %}
+                                        <div>
+                                            <a href="#" class="btn btn-lg btn-danger">Kindly contact Admin to remove item</a>
+                                        </div>
+                                        {% else %}
                                         <div>
                                             <a href="{% url 'shop:delete-item' the_game.id %}" class="btn btn-lg btn-danger">Remove Item</a>
                                         </div>
+                                        {% endif %}
+                                        
                                     </div><!-- .col -->
                                 </div><!-- .row -->
                                 <hr class="hr border-light">
                                 <div class="row g-gs flex-lg-row-reverse pt-5">
+
+
+                                    {% if the_game.admin_approved == True %}
+
+                                    <p> Kindly contact admin to update item </p>
+
+                                    {% else %}
 
                                     <div>
                                         
@@ -203,6 +217,10 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                    {% endif %}
+
+
                                     
                                     
                                 </div><!-- .row -->

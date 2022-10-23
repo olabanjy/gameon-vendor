@@ -100,11 +100,11 @@
                         </div>
                         <div class="nk-tb-col tb-col-md">
 
-                            {% if item.admin_approved == True %}
-                                    <li><span class="badge badge-success">Approved</span></li>
-                                    {% else %}
-                                    <li><span class="badge badge-danger">Pending</span></li>
-                                    {% endif %}
+                            {% if val.admin_approved == True %}
+                            <li><span class="badge badge-success">Approved</span></li>
+                            {% else %}
+                            <li><span class="badge badge-danger">Pending</span></li>
+                            {% endif %}
                           
                            
                         
@@ -117,7 +117,7 @@
                                         <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
                                         <div class="dropdown-menu dropdown-menu-right">
                                             <ul class="link-list-opt no-bdr">
-                                                {% if item.admin_approved == True %}
+                                                {% if val.admin_approved == True %}
                                                 <li><a href="#"><em class="icon ni ni-edit"></em><span>Please contact Admin to Edit</span></a></li>
                                                 {% else %}
                                                 <li><a href="{% url 'rental:item-details' val.id %}"><em class="icon ni ni-edit"></em><span>Edit Product</span></a></li>
