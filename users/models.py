@@ -162,9 +162,9 @@ class UserBankAccount(models.Model):
     user = models.ForeignKey(
         Profile, on_delete=models.CASCADE, related_name="user_bank"
     )
-    account_number = models.CharField(max_length=11)
-    account_name = models.CharField(max_length=100)
-    account_bank = models.CharField(max_length=100)
+    account_number = models.CharField(max_length=11, null=True)
+    account_name = models.CharField(max_length=100, null=True)
+    account_bank = models.CharField(max_length=100, null=True)
     account_bank_code = models.CharField(max_length=15, null=True)
     created_at = models.DateTimeField(auto_now=True)
 

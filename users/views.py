@@ -47,8 +47,8 @@ class SetUpProfile(View):
 
     def get(self, request, *args, **kwargs):
 
-        if self.request.user.profile.profile_set_up == True:
-            return redirect("/")
+        # if self.request.user.profile.profile_set_up == True:
+        #     return redirect("/")
 
         form = ProfileSetUpForm()
 
@@ -77,6 +77,12 @@ class SetUpProfile(View):
                 doc_type = form.cleaned_data.get("doc_type")
                 document_front = form.cleaned_data.get("document_front")
                 document_back = form.cleaned_data.get("document_back")
+
+                ####
+                account_number = form.cleaned_data.get("account_number")
+                account_name = form.cleaned_data.get("account_name")
+                account_bank = form.cleaned_data.get("account_bank")
+                ####
 
                 profile.first_name = first_name
                 profile.last_name = last_name
@@ -109,6 +115,15 @@ class SetUpProfile(View):
                 profile.profile_set_up = True
                 profile.save()
 
+                new_bank_account, created = UserBankAccount.objects.get_or_create(
+                    user=profile
+                )
+                new_bank_account.account_number = account_number
+                new_bank_account.account_name = account_name
+                new_bank_account.account_bank = account_bank
+
+                new_bank_account.save()
+
                 # TO DO
                 # send_kyc_submitted_email.delay(self.request.user.pk)
                 # send_kyc_submitted_email_admin.delay(self.request.user.pk)
@@ -139,8 +154,13 @@ class AccountSettings(View):
             return redirect("/u/profile-set-up")
 
         user_ad = Address.objects.filter(user=request.user.profile).first()
+        user_bank = None
+        user_bank_qs = UserBankAccount.objects.filter(user=request.user.profile)
+        if user_bank_qs.exists():
+            user_bank = user_bank_qs.first()
+
         form = AccountSettingsForm()
-        context = {"user_ad": user_ad, "form": form}
+        context = {"user_ad": user_ad, "user_bank": user_bank, "form": form}
         return render(self.request, self.template, context)
 
     def post(self, request):
@@ -160,24 +180,35 @@ class AccountSettings(View):
                 photo = form.cleaned_data.get("photo")
                 print("photo is", photo)
 
+                account_number = form.cleaned_data.get("account_number")
+                account_name = form.cleaned_data.get("account_name")
+                account_bank = form.cleaned_data.get("account_bank")
+
                 if shop_name:
                     profile.shop_name = shop_name
                 if phone:
                     profile.phone = phone
                 if photo:
                     profile.photo = photo
-
                 profile.save()
                 vendor_address = Address.objects.filter(user=profile).first()
-
                 if address_1:
                     vendor_address.street_address = address_1
-
                 if city:
                     vendor_address.city = city
                 if state:
                     vendor_address.state = state
                 vendor_address.save()
+
+                user_bank = UserBankAccount.objects.filter(user=profile).first()
+                if account_number:
+                    user_bank.account_number = account_number
+                if account_name:
+                    user_bank.account_name = account_name
+                if account_bank:
+                    user_bank.account_bank = account_bank
+
+                user_bank.save()
 
                 return HttpResponseRedirect(reverse("users:account-settings"))
 

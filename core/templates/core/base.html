@@ -86,6 +86,9 @@
                                             
                                         </ul><!-- .nk-menu-sub -->
                                     </li><!-- .nk-menu-item -->
+
+
+                                   
                                    
 
                                    
@@ -102,6 +105,20 @@
                                         </a>
                                        
                                     </li><!-- .nk-menu-item -->
+
+
+                                    <li class="nk-menu-heading">
+                                        <h6 class="overline-title text-primary-alt"> Support </h6>
+                                    </li><!-- .nk-menu-heading -->
+
+                                    <li class="nk-menu-item">
+                                        <a href="#" class="nk-menu-link" data-toggle="modal" data-target="#termsandconditions">
+                                            <span class="nk-menu-icon"><em class="icon ni ni-files"></em></span>
+                                            <span class="nk-menu-text">Terms & Condition </span>
+                                        </a>
+                                       
+                                    </li>
+                                    
 
                                 </ul><!-- .nk-menu -->
                             </div><!-- .nk-sidebar-menu -->
@@ -230,8 +247,24 @@
     </div>
     <!-- app-root @e -->
 
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="termsandconditions">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <a href="#" class="close" data-dismiss="modal"><em class="icon ni ni-cross-sm"></em></a>
+                <div class="modal-body modal-body-md">
+                    <h5 class="title mb-4">Terms & Conditions </h5>
+                        <div>
+                            <h6 class="title">Item Name</h6>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro numquam distinctio ab cupiditate veniam a aperiam architecto perspiciatis quidem provident!</p>
+                        </div>
+                </div>
+            </div><!-- .modal-content -->
+        </div><!-- .modla-dialog -->
+    </div><!-- .modal -->
+
     {% block modals %}
-    <!-- select region modal -->
+  
     
 
     {% endblock modals %}

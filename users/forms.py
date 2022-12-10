@@ -62,10 +62,22 @@ class ProfileSetUpForm(forms.Form):
         widget=forms.TextInput(attrs={"class": "form-control form-control-lg"}),
     )
 
-    # address_2 = forms.CharField(
-    #     required=True,
-    #     widget=forms.TextInput(attrs={"class": "form-control form-control-lg"}),
-    # )
+    account_number = forms.CharField(
+        required=True,
+        widget=forms.NumberInput(
+            attrs={"class": "form-control form-control-lg", "maxlength": "10"}
+        ),
+    )
+
+    account_name = forms.CharField(
+        required=True,
+        widget=forms.TextInput(attrs={"class": "form-control form-control-lg"}),
+    )
+
+    account_bank = forms.CharField(
+        required=True,
+        widget=forms.TextInput(attrs={"class": "form-control form-control-lg"}),
+    )
 
     city = forms.CharField(
         required=True,
@@ -172,10 +184,22 @@ class AccountSettingsForm(forms.Form):
         widget=forms.TextInput(attrs={"class": "form-control form-control-lg"}),
     )
 
-    # address_2 = forms.CharField(
-    #     required=True,
-    #     widget=forms.TextInput(attrs={"class": "form-control form-control-lg"}),
-    # )
+    account_number = forms.CharField(
+        required=False,
+        widget=forms.NumberInput(
+            attrs={"class": "form-control", "maxlength": "10", "id": "account_number"}
+        ),
+    )
+
+    account_name = forms.CharField(
+        required=False,
+        widget=forms.TextInput(attrs={"class": "form-control", "id": "account_name"}),
+    )
+
+    account_bank = forms.CharField(
+        required=False,
+        widget=forms.TextInput(attrs={"class": "form-control", "id": "account_bank"}),
+    )
 
     city = forms.CharField(
         required=True,
@@ -216,10 +240,6 @@ class AccountSettingsForm(forms.Form):
                     raise forms.ValidationError(
                         "Wrong File format, must be or .png or .jpg"
                     )
-                # if photo.size > 5242880:
-                #     raise forms.ValidationError(
-                #         f"File is too large. Size should not be more than 1MB"
-                #     )
 
             return cleaned_data
 
