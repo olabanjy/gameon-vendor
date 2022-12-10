@@ -47,8 +47,8 @@ class SetUpProfile(View):
 
     def get(self, request, *args, **kwargs):
 
-        # if self.request.user.profile.profile_set_up == True:
-        #     return redirect("/")
+        if self.request.user.profile.profile_set_up == True:
+            return redirect("/")
 
         form = ProfileSetUpForm()
 
