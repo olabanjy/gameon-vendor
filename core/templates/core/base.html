@@ -112,7 +112,7 @@
                                     </li><!-- .nk-menu-heading -->
 
                                     <li class="nk-menu-item">
-                                        <a href="#" class="nk-menu-link" data-toggle="modal" data-target="#termsandconditions">
+                                        <a href="#" id="tandcondbtn" class="nk-menu-link" data-toggle="modal" data-target="#termsandconditions">
                                             <span class="nk-menu-icon"><em class="icon ni ni-files"></em></span>
                                             <span class="nk-menu-text">Terms & Condition </span>
                                         </a>
@@ -194,8 +194,7 @@
                                                 <ul class="link-list">
 
                                                     <li><a href="{% url 'users:account-settings' %}"><em class="icon ni ni-setting-alt"></em><span>Account Setting</span></a></li>
-     
-                                                    <!-- <li><a class="dark-switch" href="#"><em class="icon ni ni-moon"></em><span>Dark Mode</span></a></li> -->
+
                                                 </ul>
                                             </div>
                                             <div class="dropdown-inner">
@@ -204,14 +203,14 @@
                                                 </ul>
                                             </div>
                                         </div>
-                                    </li><!-- .dropdown -->
+                                    </li>
                                    
-                                </ul><!-- .nk-quick-nav -->
-                            </div><!-- .nk-header-tools -->
-                        </div><!-- .nk-header-wrap -->
-                    </div><!-- .container-fliud -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <!-- main header @e -->
+               
 
                 {% block content %}
 
@@ -246,6 +245,7 @@
         <!-- main @e -->
     </div>
     <!-- app-root @e -->
+    <input type="hidden" id="phone_number_prompt" name="phone_number_prompt" value="{{request.user.profile.first_login}}">
 
 
     <div class="modal fade" tabindex="-1" role="dialog" id="termsandconditions">
@@ -259,19 +259,38 @@
                             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro numquam distinctio ab cupiditate veniam a aperiam architecto perspiciatis quidem provident!</p>
                         </div>
                 </div>
-            </div><!-- .modal-content -->
-        </div><!-- .modla-dialog -->
-    </div><!-- .modal -->
+            </div>
+        </div>
+    </div>
 
     {% block modals %}
   
     
 
     {% endblock modals %}
-    <!-- JavaScript -->
+  
     <script src="{% static 'assets/js/bundle.js' %}?ver=2.9.0"></script>
     <script src="{% static 'assets/js/core_scripts.js' %}?ver=2.9.0"></script>
     <script src="{% static 'assets/js/charts/gd-default.js' %}?ver=2.9.0"></script>
+
+    <script type="text/javascript">
+
+    
+        var checkPrompt = $('#phone_number_prompt').val()
+        console.log(checkPrompt)
+
+        $(document).ready(function(){
+       
+        if (checkPrompt === "False") {
+         console.log("checkprompt is False")
+    
+        } else {
+            $("#tandcondbtn").click();
+        }
+            
+    });
+    </script>
+
     {% block extra_scripts %}
 
     {% endblock extra_scripts %}

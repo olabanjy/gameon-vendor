@@ -11,43 +11,39 @@ import os
 from .models import UserLoginActivity
 
 
-
-@shared_task
-def save_user_login_info(user_id, browser, device, os, city, country, location, ip):
-    print(f"{user_id}, {browser}, {device}, {os}, {city}, {country}, {location}, {ip}")
-    # try:
-    login_user = User.objects.get(pk=user_id)
-    new_login = UserLoginActivity.objects.create(
-        user=login_user,
-        login_IP = ip,
-        user_agent_info = f"{browser}/{device}/{os}", 
-        login_city = city,
-        login_country = country,
-        login_loc = location
-            )
-    print("new login info saved")
-    # except:
-    #     print("Error saving login info")
+# @shared_task
+def save_user_login_info(user_id):
+    try:
+        login_user = User.objects.get(pk=user_id)
+        new_login = UserLoginActivity.objects.create(user=login_user)
+        print("new login info saved")
+    except:
+        print("Error saving login info")
+        pass
 
 
 @shared_task
 def send_login_notification(user_id, browser, device, os, city, country, location, ip):
-    user =  User.objects.get(pk=user_id)
+    user = User.objects.get(pk=user_id)
     try:
         today = datetime.now()
         time_now = pytz.utc.localize(today)
-        subject, from_email, to = 'Login Notification', 'Survey Bay <comms@surveybay.co>', [
-            user.email]
+        subject, from_email, to = (
+            "Login Notification",
+            "Survey Bay <comms@surveybay.co>",
+            [user.email],
+        )
 
         html_content = render_to_string(
-            'events/login_notification.html', 
+            "events/login_notification.html",
             {
-                'username': user.username, 
-                'browser': browser, 
-                'device': device,
-                'os':os,
-                'time_now':time_now
-            })
+                "username": user.username,
+                "browser": browser,
+                "device": device,
+                "os": os,
+                "time_now": time_now,
+            },
+        )
         msg = EmailMessage(subject, html_content, from_email, to)
         msg.content_subtype = "html"
         msg.send()

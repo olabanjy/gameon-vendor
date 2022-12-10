@@ -13,12 +13,12 @@ import pyotp
 # import ipinfo
 
 
-# @receiver(user_logged_in)
-# def log_user_login(sender, request, user, **kwargs):
-#     #print(f"{user}  {request.session.session_key}user logged in")
-#     #print(f"{user} logged in with {str(request.user_agent.browser.family)}, {str(request.user_agent.device.family)}, {str(request.user_agent.os.family)} from {request.ipinfo.city} - {request.ipinfo.country_name}, {request.ipinfo.loc}, {request.ipinfo.ip}")
-#     save_user_login_info(user.pk, str(request.user_agent.browser.family), str(request.user_agent.device.family), str(request.user_agent.os.family), str(request.ipinfo.city), str(request.ipinfo.country_name), str(request.ipinfo.loc), str(request.ipinfo.ip))
-#     #send_login_notification.delay(user.pk, str(request.user_agent.browser.family), str(request.user_agent.device.family), str(request.user_agent.os.family),str(request.ipinfo.city), str(request.ipinfo.country_name), str(request.ipinfo.loc), str(request.ipinfo.ip))
+@receiver(user_logged_in)
+def log_user_login(sender, request, user, **kwargs):
+    try:
+        save_user_login_info(user.pk)
+    except:
+        pass
 
 
 @receiver(user_login_failed)

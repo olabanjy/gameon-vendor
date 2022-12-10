@@ -71,6 +71,15 @@ class Profile(models.Model):
 
         return t.verify(provided_otp)
 
+    @property
+    def first_login(self, *args, **kwargs):
+        login_activity_qs = UserLoginActivity.objects.filter(user=self.user)
+        print(login_activity_qs)
+        if login_activity_qs.count() < 2:
+            return True
+        else:
+            return False
+
 
 def profile_receiver(sender, instance, created, *args, **kwargs):
 
