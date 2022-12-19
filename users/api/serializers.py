@@ -4,7 +4,7 @@ from django.conf import settings
 import importlib
 
 
-from users.models import Address, Profile, UserKYC
+from users.models import Address, Profile, UserKYC, UserBankAccount
 from django.contrib.humanize.templatetags.humanize import naturalday
 
 
@@ -17,6 +17,17 @@ class AddressSerializer(serializers.ModelSerializer):
             "city",
             "state",
             "zip",
+        ]
+
+
+class BankAccountSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserBankAccount
+        fields = [
+            "account_number",
+            "account_name",
+            "account_bank",
+            "account_bank_code",
         ]
 
 
@@ -57,6 +68,7 @@ class ProfileKYCSerializer(serializers.ModelSerializer):
 class ProfileSerializer(serializers.ModelSerializer):
     kycObject = serializers.SerializerMethodField()
     addressObject = serializers.SerializerMethodField()
+    bankObject = serializers.SerializerMethodField()
     user_email = serializers.SerializerMethodField()
     time_joined = serializers.SerializerMethodField()
     last_login = serializers.SerializerMethodField()
@@ -65,6 +77,16 @@ class ProfileSerializer(serializers.ModelSerializer):
         model = Profile
         exclude = ("id",)
         read_only_fields = ["user"]
+
+    def get_bankObject(self, instance):
+        try:
+            userBankQS = UserBankAccount.objects.filter(user=instance)
+            if userBankQS.exists():
+                userBank = userBankQS.first()
+                serializer = BankAccountSerializer(userBank, context=self.context)
+                return serializer.data
+        except Exception as e:
+            return None
 
     def get_kycObject(self, instance):
         try:
