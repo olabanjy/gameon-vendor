@@ -191,7 +191,14 @@ class AccountSettings(View):
                 if photo:
                     profile.photo = photo
                 profile.save()
-                vendor_address = Address.objects.filter(user=profile).first()
+
+                try:
+                    vendor_address = Address.objects.get(user=profile)
+                except Address.DoesNotExist:
+                    vendor_address = Address.objects.create(user=profile)
+                except Address.MultipleObjectsReturned:
+                    vendor_address = Address.objects.filter(user=profile).first()
+
                 if address_1:
                     vendor_address.street_address = address_1
                 if city:
@@ -200,7 +207,13 @@ class AccountSettings(View):
                     vendor_address.state = state
                 vendor_address.save()
 
-                user_bank = UserBankAccount.objects.filter(user=profile).first()
+                try:
+                    user_bank = UserBankAccount.objects.get(user=profile)
+                except UserBankAccount.DoesNotExist:
+                    user_bank = UserBankAccount.objects.create(user=profile)
+                except UserBankAccount.MultipleObjectsReturned:
+                    user_bank = UserBankAccount.objects.filter(user=profile).frist()
+
                 if account_number:
                     user_bank.account_number = account_number
                 if account_name:
