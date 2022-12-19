@@ -85,7 +85,11 @@ class ProfileSerializer(serializers.ModelSerializer):
                 userBank = userBankQS.first()
                 serializer = BankAccountSerializer(userBank, context=self.context)
                 return serializer.data
+            else:
+                print("vendor has no bank account")
+                return None
         except Exception as e:
+            print("exception error", e)
             return None
 
     def get_kycObject(self, instance):
