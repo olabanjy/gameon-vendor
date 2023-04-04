@@ -137,6 +137,8 @@ class Address(models.Model):
     state = models.CharField(max_length=300, blank=True, null=True)
     country = CountryField(multiple=False, blank=True, null=True)
     zip = models.CharField(max_length=100, blank=True, null=True)
+    long = models.FloatField(null=True, blank=True)
+    lat = models.FloatField(null=True, blank=True)
 
     def __str__(self):
         return self.user.user.email

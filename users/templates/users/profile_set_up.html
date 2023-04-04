@@ -14,13 +14,13 @@
         <!-- StyleSheets  -->
         <link rel="stylesheet" href="{% static 'assets/css/vendor_dashlite.css' %}?ver=2.8.0">
         <link id="skin-default" rel="stylesheet" href="{% static 'assets/css/theme.css' %}?ver=2.8.0">
-        
-      
+
+
         <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"/>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
-        <style type="text/css"> 
+        <style type="text/css">
             #sb_btn:disabled,
             #sb_btn[disabled]{
             background-color: grey;
@@ -64,7 +64,7 @@
                                             <div class="nk-kycfm-head justify-center">
                                                 <div class="nk-kycfm-title">
                                                     <!-- <h5 class="title">Proceed with </h5> -->
-                                          
+
                                                 </div>
                                             </div><!-- nk-kycfm-head -->
 
@@ -72,14 +72,14 @@
                                                 <div class="nk-kycfm-count">01</div>
                                                 <div class="nk-kycfm-title">
                                                     <h5 class="title">Personal Info</h5>
-                                    
+
                                                 </div>
                                             </div><!-- nk-kycfm-head -->
                                             <div class="nk-kycfm-content">
-                                                
-                                                
+
+
                                                 {% if form.errors %}
-                    
+
                                                 {% for error in form.non_field_errors %}
                                                 <div class="nk-kycfm-note">
                                                     <em class="icon ni ni-info-fill" data-toggle="tooltip" data-placement="right" title="{{ error|escape }}"></em>
@@ -95,7 +95,7 @@
                                                             </div>
                                                             <div class="form-control-group">
                                                                 {{form.first_name}}
-                                                               
+
                                                             </div>
                                                             <div>
                                                                 {% if form.first_name.errors %}
@@ -116,7 +116,7 @@
                                                             </div>
                                                             <div class="form-control-group">
                                                                 {{form.last_name}}
-                                                               
+
                                                             </div>
                                                             <div>
                                                                 {% if form.last_name.errors %}
@@ -130,16 +130,16 @@
                                                             </div>
                                                         </div>
                                                     </div><!-- .col -->
-                                                    
+
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <div class="form-label-group">
                                                                 <label class="form-label">Gender <span class="text-danger">*</span></label>
                                                             </div>
-                                                          
+
                                                             <div class="form-control-group">
                                                                 {{form.gender}}
-                                                                
+
                                                             </div>
                                                             <div>
                                                             {% if form.gender.errors %}
@@ -163,7 +163,7 @@
                                                             </div>
                                                             <div class="form-control-group">
                                                                 {{form.dob}}
-                                                                
+
                                                             </div>
                                                             <div>
                                                             {% if form.dob.errors %}
@@ -186,8 +186,8 @@
                                                             </div>
                                                             <div class="form-control-group">
                                                                 {{form.phone}}
-                                                             
-                                                          
+
+
                                                             </div>
                                                             <div>
                                                                 {% if form.phone.errors %}
@@ -200,14 +200,14 @@
                                                                     {% endif %}
                                                             </div>
                                                         </div>
-                                                        
 
-                                                        
+
+
                                                     </div><!-- .col -->
 
                                                 </div>
                                             </div>
-                                            
+
                                             <div class="nk-kycfm-head">
                                                 <div class="nk-kycfm-count">02</div>
                                                 <div class="nk-kycfm-title">
@@ -215,10 +215,10 @@
                                                     <p class="sub-title">To verify your account, please tell us where you live.</p>
                                                 </div>
                                             </div>
-                                            
+
                                             <div class="nk-kycfm-content">
 
-                                                
+
                                                 <div class="row g-4">
 
                                                     <div class="col-md-6">
@@ -228,10 +228,10 @@
                                                             </div>
                                                             <div class="form-control-group">
                                                                 {{form.shop_name}}
-                                                              
+
                                                             </div>
-                                                            
-                                                           
+
+
                                                         </div>
                                                     </div>
 
@@ -243,8 +243,10 @@
                                                             </div>
                                                             <div class="form-control-group">
                                                                 {{form.address_1}}
-                                                               
                                                             </div>
+                                                            <input name="latitude" type="text" id="latitude" hidden />
+                                                            <input name="longitude" type="text" id="longitude" hidden />
+
                                                             <div>
                                                                 {% if form.address_1.errors %}
                                                                         {% for error in form.address_1.errors %}
@@ -258,7 +260,7 @@
                                                         </div>
                                                     </div>
 
-                                                    
+
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <div class="form-label-group">
@@ -266,7 +268,7 @@
                                                             </div>
                                                             <div class="form-control-group">
                                                                 {{form.city}}
-                                                               
+
                                                             </div>
                                                             <div>
                                                                 {% if form.city.errors %}
@@ -287,7 +289,7 @@
                                                             </div>
                                                             <div class="form-control-group">
                                                                 {{form.state}}
-                                                               
+
                                                             </div>
                                                             <div>
                                                                 {% if form.state.errors %}
@@ -301,14 +303,14 @@
                                                             </div>
                                                         </div>
                                                     </div><!-- .col -->
-                                                   
-
-                                                    
 
 
 
-                                                    
-              
+
+
+
+
+
                                                 </div>
                                             </div>
 
@@ -320,9 +322,9 @@
                                                     <p class="sub-title">In order to complete registration, please upload any of your documents.</p>
                                                 </div>
                                             </div><!-- nk-kycfm-head -->
-                    
+
                                             <div class="nk-kycfm-content">
-                                              
+
                                                 <ul class="nk-kycfm-control-list g-3">
                                                     <li class="nk-kycfm-control-item">
                                                         <input class="nk-kycfm-control id_passport" type="radio" value="0" name="doc_type" id="id_doc_type_0" data-title="Passport" >
@@ -376,7 +378,7 @@
                                                             <div class="nk-kycfm-upload-box">
                                                                 <div class="">
                                                                     {{form.document_front}}
-                                                                  
+
                                                                 </div>
                                                                 <div>
                                                                     {% if form.document_front.errors %}
@@ -405,7 +407,7 @@
                                                                 <div class="">
 
                                                                     {{form.document_back}}
-                                                                   
+
                                                                 </div>
                                                                 <div>
                                                                     {% if form.document_back.errors %}
@@ -440,7 +442,7 @@
 
                                             <div class="nk-kycfm-content">
 
-                                                
+
                                                 <div class="row g-4">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
@@ -449,10 +451,10 @@
                                                             </div>
                                                             <div class="form-control-group">
                                                                 {{form.account_bank}}
-                                                              
+
                                                             </div>
-                                                            
-                                                           
+
+
                                                         </div>
                                                     </div>
 
@@ -463,10 +465,10 @@
                                                             </div>
                                                             <div class="form-control-group">
                                                                 {{form.account_number}}
-                                                              
+
                                                             </div>
-                                                            
-                                                           
+
+
                                                         </div>
                                                     </div>
 
@@ -477,10 +479,10 @@
                                                             </div>
                                                             <div class="form-control-group">
                                                                 {{form.account_name}}
-                                                              
+
                                                             </div>
-                                                            
-                                                           
+
+
                                                         </div>
                                                     </div>
 
@@ -488,8 +490,8 @@
                                             </div>
 
                                             <div class="alert alert-info" style="display: none;"></div>
-                                            
-                                           
+
+
                                             <div class="alert alert-info" style="display: none;"></div>
 
                                             <div class="nk-kycfm-footer">
@@ -497,11 +499,11 @@
                                                 <div class="form-group">
                                                     <div class="custom-control custom-control-xs custom-checkbox">
                                                         {{form.t_and_c}}
-                                                       
+
                                                         <label class="custom-control-label" for="tc-agree">I Have Read The <a href="https://gameon.com.ng/terms-and-conditions/" target="_blank">Terms Of Condition</a> And <a href="https://gameon.com.ng/privacy-and-policy/" target="_blank">Privacy Policy</a></label>
                                                     </div>
                                                 </div>
-                                                
+
                                                 <div class="nk-kycfm-action pt-2">
                                                     <button type="submit" id="sb_btn" class="btn btn-lg btn-primary"> Proceed </button>
                                                 </div>
@@ -525,7 +527,7 @@
                     <div class="nk-footer-wrap">
                         <div class="nk-footer-copyright"> &copy; <script>document.write(new Date().getFullYear());</script> GameOn Partners.
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -535,19 +537,22 @@
     </div>
     <!-- app-root @e -->
     <!-- JavaScript -->
-    
+
+
+
     <script src="{% static 'assets/js/bundle.js' %}?ver=2.8.0"></script>
     <script src="{% static 'assets/js/vendor_scripts.js' %}?ver=2.8.0"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&key=AIzaSyAUBoCQ9qfFHOOVqGF7Q0XrhpGl1x6cDHw&libraries=places"></script>
     <script type="text/javascript">
         $(function () {
             var t_and_c = $('#tc-agree');
             var sb_btn = $('#sb_btn');
-        
+
             t_and_c.on('change', function() {
                 sb_btn.prop("disabled", !this.checked);
                 }).trigger('change');
-        
-        });    
+
+        });
     </script>
     <script>
 
@@ -565,12 +570,12 @@
         const phoneInputField = document.querySelector("#phone");
         const phoneInput = window.intlTelInput(phoneInputField, {
             initialCountry: "auto",
-   
+
             geoIpLookup: getIp,
             utilsScript:
                 "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
         });
-        
+
 
 
         $('#sb_btn').click(function(e){
@@ -581,7 +586,7 @@
             const info = document.querySelector(".alert-info");
             info.style.display = "";
             info.innerHTML = `Phone number in E.164 format: <strong>${phoneNumber}</strong>`;
-          
+
 
             document.querySelector("#phone").value = phoneNumber;
             $('#onboarding_form').submit();
@@ -591,8 +596,8 @@
     </script>
 
 
-   
-    
+
+
 
     <script type="text/javascript">
 
@@ -605,10 +610,27 @@
                 }
             });
         });
-    
-    
+
+
     </script>
-    
+
+
+
+    <script>
+        google.maps.event.addDomListener(window, 'load', initialize);
+        function initialize() {
+        var input = document.getElementById('address_1');
+        var autocomplete = new google.maps.places.Autocomplete(input);
+        autocomplete.addListener('place_changed', function () {
+        var place = autocomplete.getPlace();
+        // place variable will have all the information you are looking for.
+
+        document.getElementById("latitude").value = place.geometry['location'].lat();
+        document.getElementById("longitude").value = place.geometry['location'].lng();
+        });
+        }
+    </script>
+
     <script type="text/javascript">
         $('#onboarding_form').submit(function(){
         $("#onboarding_form :disabled").removeAttr('disabled');

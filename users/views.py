@@ -84,6 +84,11 @@ class SetUpProfile(View):
                 account_bank = form.cleaned_data.get("account_bank")
                 ####
 
+                ####
+                longitude = form.cleaned_data.get("longitude")
+                latitude = form.cleaned_data.get("latitude")
+                ####
+
                 profile.first_name = first_name
                 profile.last_name = last_name
                 profile.shop_name = shop_name
@@ -96,7 +101,13 @@ class SetUpProfile(View):
                 # vendor_address.apartment_address = address_2
                 vendor_address.city = city
                 vendor_address.state = state
+                if longitude:
+                    vendor_address.long = longitude
+                if latitude:
+                    vendor_address.lat = latitude
+
                 vendor_address.save()
+                print(vendor_address.long, vendor_address.lat)
 
                 vendor_kyc, created = UserKYC.objects.get_or_create(user=profile)
 
@@ -184,6 +195,11 @@ class AccountSettings(View):
                 account_name = form.cleaned_data.get("account_name")
                 account_bank = form.cleaned_data.get("account_bank")
 
+                ####
+                longitude = form.cleaned_data.get("longitude")
+                latitude = form.cleaned_data.get("latitude")
+                ####
+
                 if shop_name:
                     profile.shop_name = shop_name
                 if phone:
@@ -205,7 +221,14 @@ class AccountSettings(View):
                     vendor_address.city = city
                 if state:
                     vendor_address.state = state
+
+                if longitude:
+                    vendor_address.long = longitude
+                if latitude:
+                    vendor_address.lat = latitude
+
                 vendor_address.save()
+                print(vendor_address.long, vendor_address.lat)
 
                 try:
                     user_bank = UserBankAccount.objects.get(user=profile)

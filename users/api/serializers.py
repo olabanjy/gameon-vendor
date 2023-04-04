@@ -17,6 +17,8 @@ class AddressSerializer(serializers.ModelSerializer):
             "city",
             "state",
             "zip",
+            "long",
+            "lat",
         ]
 
 

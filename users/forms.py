@@ -59,8 +59,12 @@ class ProfileSetUpForm(forms.Form):
     )
     address_1 = forms.CharField(
         required=True,
-        widget=forms.TextInput(attrs={"class": "form-control form-control-lg"}),
+        widget=forms.TextInput(
+            attrs={"class": "form-control form-control-lg", "id": "address_1"}
+        ),
     )
+    longitude = forms.CharField(required=False)
+    latitude = forms.CharField(required=False)
 
     account_number = forms.CharField(
         required=True,
@@ -181,8 +185,13 @@ class AccountSettingsForm(forms.Form):
     )
     address_1 = forms.CharField(
         required=True,
-        widget=forms.TextInput(attrs={"class": "form-control form-control-lg"}),
+        widget=forms.TextInput(
+            attrs={"class": "form-control form-control-lg", "id": "address_1"}
+        ),
     )
+
+    longitude = forms.CharField(required=False)
+    latitude = forms.CharField(required=False)
 
     account_number = forms.CharField(
         required=False,

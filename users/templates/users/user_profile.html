@@ -5,6 +5,12 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
 
+<style type="text/css">
+    div.pac-container {
+   z-index: 1050 !important;
+}
+</style>
+
 {% endblock extra_head%}
 
 {% block content %}
@@ -72,15 +78,15 @@
                                                         </div>
                                                         <div class="data-col data-col-end"><span class="data-more"><em class="icon ni ni-forward-ios"></em></span></div>
                                                     </div><!-- data-item -->
-                                                    
+
                                                     <div class="data-item" data-toggle="modal" data-target="#profile-edit" data-tab-target="#address">
                                                         <div class="data-col">
                                                             <span class="data-label">Address</span>
                                                             <span class="data-value"> {{user_ad.street_address}} {{user_ad.apartment_address}} <br>{{user_ad.city}}, {{user_ad.state}}</span>
                                                         </div>
+
                                                         <div class="data-col data-col-end"><span class="data-more"><em class="icon ni ni-forward-ios"></em></span></div>
                                                     </div>
-
 
                                                     <div class="data-item" data-toggle="modal" data-target="#profile-edit" data-tab-target="#address">
                                                         <div class="data-col">
@@ -90,7 +96,7 @@
                                                         <div class="data-col data-col-end"><span class="data-more"><em class="icon ni ni-forward-ios"></em></span></div>
                                                     </div>
                                                 </div><!-- data-list -->
-                                                
+
                                             </div><!-- .nk-block -->
                                         </div>
                                         <div class="card-aside card-aside-left user-aside toggle-slide toggle-slide-left toggle-break-lg" data-content="userAside" data-toggle-screen="lg" data-toggle-overlay="true">
@@ -98,7 +104,7 @@
                                                 <div class="card-inner">
                                                     <div class="user-card">
                                                         <div>
-                                                            <img  src="{% if request.user.profile.photo %}{{request.user.profile.photo.url}}{% endif %}" width="70%" height="auto" alt=""> 
+                                                            <img  src="{% if request.user.profile.photo %}{{request.user.profile.photo.url}}{% endif %}" width="70%" height="auto" alt="">
                                                         </div>
                                                         <div class="user-info">
                                                             <span class="lead-text">{{request.user.profile.first_name}}  {{request.user.profile.last_name}}</span>
@@ -116,14 +122,14 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        
+
                                                     </div><!-- .user-card -->
                                                 </div><!-- .card-inner -->
-                                                
+
                                                 <div class="card-inner p-0">
                                                     <ul class="link-list-menu">
                                                         <li><a class="active" href="#"><em class="icon ni ni-user-fill-c"></em><span>Personal Infomation</span></a></li>
-                         
+
                                                     </ul>
                                                 </div><!-- .card-inner -->
                                             </div><!-- .card-inner-group -->
@@ -142,7 +148,7 @@
 {% block modals %}
 
 
-    
+
     <!-- @@ Profile Edit Modal @e -->
     <div class="modal fade" role="dialog" id="profile-edit">
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
@@ -154,7 +160,7 @@
                         <li class="nav-item">
                             <a class="nav-link active" data-toggle="tab" href="#personal">Personal</a>
                         </li>
-                       
+
                     </ul><!-- .nav-tabs -->
                     <div class="tab-content">
                         <div class="alert alert-info" style="display: none;"></div>
@@ -184,15 +190,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="form-label" for="address_1"> Shop Address </label>
-                                        <input type="text" class="form-control form-control-lg" name="address_1" id="address_1" value="{{user_ad.street_address}}" >
+                                        <input type="text" class="form-control form-control-lg" name="address_1" id="address_1" >
+                                        <input name="latitude" type="text" id="latitude" hidden />
+                                        <input name="longitude" type="text" id="longitude" hidden />
                                     </div>
+
                                 </div>
-                                <!-- <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="form-label" for="address_2">Apartmemt Address</label>
-                                        <input type="text" class="form-control form-control-lg" name="address_2" id="address_2" value="{{user_ad.apartment_address}}">
-                                    </div>
-                                </div> -->
+
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="form-label" for="city">City  </label>
@@ -228,9 +232,9 @@
                                         <input type="text" class="form-control form-control-lg" name="account_number" id="account_number" value="{{user_bank.account_number}}">
                                     </div>
                                 </div>
-                                
-                               
-                               
+
+
+
                                 <div class="col-12">
                                     <ul class="align-center flex-wrap flex-sm-nowrap gx-4 gy-2">
                                         <li>
@@ -246,7 +250,7 @@
                     </form>
 
 
-                      
+
 
 
 
@@ -262,12 +266,9 @@
 {% endblock modals %}
 
 {% block extra_scripts %}
+
+
 <script type="text/javascript">
-
-
-
-
-
 
     function getIp(callback) {
     fetch('https://ipinfo.io/json?token=9f438262432756', { headers: { 'Accept': 'application/json' }})
@@ -288,7 +289,7 @@
         utilsScript:
             "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
     });
-    
+
 
 
     $('#sb_btn').click(function(e){
@@ -299,7 +300,7 @@
         const info = document.querySelector(".alert-info");
         info.style.display = "";
         // info.innerHTML = `Phone number in E.164 format: <strong>${phoneNumber}</strong>`;
-      
+
 
         document.querySelector("#phone").value = phoneNumber;
         $('#acct_settings').submit();
@@ -317,9 +318,32 @@ $('#photo').on('change', function() {
             console.log('This file size is: ' + fileSize + "MiB");
             this.value = null;
             alert(`Image file size must be less than 4.5mb`);
-            
-        }        
+
+        }
 });
+
+</script>
+
+
+
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&key=AIzaSyAUBoCQ9qfFHOOVqGF7Q0XrhpGl1x6cDHw&libraries=places"></script>
+
+<script type="text/javascript">
+    google.maps.event.addDomListener(window, 'load', initialize);
+    function initialize() {
+        var address_input = document.getElementById('address_1');
+        var autocomplete = new google.maps.places.Autocomplete(address_input);
+
+        autocomplete.addListener('place_changed', function () {
+
+            var place = autocomplete.getPlace();
+            // place variable will have all the information you are looking for.
+
+            document.getElementById("latitude").value = place.geometry['location'].lat();
+            document.getElementById("longitude").value = place.geometry['location'].lng();
+            });
+    }
+
 
 </script>
 
