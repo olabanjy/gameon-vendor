@@ -32,7 +32,9 @@ class ProfileViewSet(ModelViewSet):
     @action(detail=False, methods=["GET"])
     def get_all_users(self, request):
         try:
-            all_profiles = Profile.objects.filter(profile_set_up=True).all()
+            all_profiles = (
+                Profile.objects.filter(profile_set_up=True).all().order_by("-id")
+            )
             serializer = self.get_serializer(all_profiles, many=True)
             return Response(status=status.HTTP_200_OK, data=serializer.data)
 
