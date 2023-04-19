@@ -138,6 +138,26 @@ class SetUpProfile(View):
                 # TO DO
                 # send_kyc_submitted_email.delay(self.request.user.pk)
                 # send_kyc_submitted_email_admin.delay(self.request.user.pk)
+                # send email to admin here
+                try:
+                    subject, from_email, to = (
+                        "VENDOR ONBOARDING ALERT ",
+                        "GameOn <noreply@gameon.com.ng>",
+                        ["admin@gameon.com.ng"],
+                        # ["shola.albert@gmail.com"],
+                    )
+
+                    html_content = render_to_string(
+                        "events/admin_profile_onboarded.html",
+                        {
+                            "profile": profile,
+                        },
+                    )
+                    msg = EmailMessage(subject, html_content, from_email, to)
+                    msg.content_subtype = "html"
+                    msg.send()
+                except:
+                    pass
 
                 return HttpResponseRedirect(reverse("core:dashboard"))
 

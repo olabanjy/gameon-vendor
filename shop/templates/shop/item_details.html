@@ -15,7 +15,7 @@
                             <div class="nk-block-head-content">
                                 <h3 class="nk-block-title page-title">Sale Item Details</h3>
                                 <div class="nk-block-des text-soft">
-                                   
+
                                 </div>
                             </div>
                             <div class="nk-block-head-content">
@@ -36,17 +36,17 @@
                                                 </div>
 
                                             </div>
-                                        
+
                                         </div>
 
-                                       
+
 
                                     </div><!-- .col -->
                                     <div class="col-lg-6">
                                         <div class="product-info mt-5 mr-xxl-5">
                                             <h4 class="product-price text-primary">N{{the_game.price}} </h4>
                                             <h2 class="product-title">{{the_game.name}}</h2>
-                                           
+
                                             <div class="product-excrept text-soft">
                                                 <p class="lead">{{the_game.desc}} </p>
                                             </div>
@@ -65,10 +65,10 @@
                                             <div class="product-meta">
                                                 <h6 class="title">Date Added</h6>
                                                 <p class="lead"> {{the_game.created_at}} </p>
-                                                
+
                                             </div>
 
-                                          
+
                                         </div>
                                         {% if the_game.admin_approved == True %}
                                         <div>
@@ -79,12 +79,11 @@
                                             <a href="{% url 'shop:delete-item' the_game.id %}" class="btn btn-lg btn-danger">Remove Item</a>
                                         </div>
                                         {% endif %}
-                                        
+
                                     </div><!-- .col -->
                                 </div><!-- .row -->
                                 <hr class="hr border-light">
                                 <div class="row g-gs flex-lg-row-reverse pt-5">
-
 
                                     {% if the_game.admin_approved == True %}
 
@@ -93,7 +92,7 @@
                                     {% else %}
 
                                     <div>
-                                        
+
 
                                         <div class="card">
                                             <div class="card-inner">
@@ -133,8 +132,8 @@
                                                                 <label class="form-label" for="thumbnailImagePath"> Change  Thumbnail Image Path </label>
                                                                 <div class="form-control-wrap">
                                                                     <div class="custom-file">
-                                                                        <input name="thumbnailImagePath" type="file" class="custom-file-input" id="thumbnailImagePath" > 
-                                                                        <label class="custom-file-label" for="thumbnailImagePath">Choose file</label> 
+                                                                        <input name="thumbnailImagePath" type="file" class="custom-file-input" id="thumbnailImagePath" >
+                                                                        <label class="custom-file-label" for="thumbnailImagePath">Choose file</label>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -144,8 +143,8 @@
                                                                 <label class="form-label" for="bannerImagePath"> Change Banner Image Path </label>
                                                                 <div class="form-control-wrap">
                                                                     <div class="custom-file">
-                                                                        <input name="bannerImagePath" type="file" class="custom-file-input" id="bannerImagePath" > 
-                                                                        <label class="custom-file-label" for="bannerImagePath">Choose file</label> 
+                                                                        <input name="bannerImagePath" type="file" class="custom-file-input" id="bannerImagePath" >
+                                                                        <label class="custom-file-label" for="bannerImagePath">Choose file</label>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -155,13 +154,13 @@
                                                                 <label class="form-label" for="displayImagePath"> Display Image Path </label>
                                                                 <div class="form-control-wrap">
                                                                     <div class="custom-file">
-                                                                        <input name="displayImagePath" type="file" class="custom-file-input" id="displayImagePath" > 
-                                                                        <label class="custom-file-label" for="displayImagePath">Choose file</label> 
+                                                                        <input name="displayImagePath" type="file" class="custom-file-input" id="displayImagePath" >
+                                                                        <label class="custom-file-label" for="displayImagePath">Choose file</label>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        
+
                                                         <div class="col-lg-6">
                                                             <div class="form-group">
                                                                 <label class="form-label" for="item_cat">Category </label>
@@ -175,9 +174,9 @@
                                                                                 {% endfor %}
                                                                             </select>
                                                                             {% endif %}
-                                                                        
-                                                                        
-                                                                      
+
+
+
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -198,7 +197,7 @@
                                                                 <label class="form-label" for="email-address-1"> Description </label>
                                                                 <div class="form-control-wrap">
                                                                     <textarea class="form-control" name="item_desc" id="item_desc" cols="30" rows="10" >{{the_game.desc}}</textarea>
-                                                                   
+
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -221,8 +220,8 @@
                                     {% endif %}
 
 
-                                    
-                                    
+
+
                                 </div><!-- .row -->
                             </div>
                         </div>

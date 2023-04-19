@@ -18,15 +18,9 @@
                         <h3 class="nk-block-title page-title">Item List</h3>
                     </div><!-- .nk-block-head-content -->
 
-                    {% if messages %}
-                    <ul class="messages text-center">
-                        {% for message in messages %}
-                        <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
-                        {% endfor %}
-                    </ul>
-                    {% endif %}
 
-                    
+
+
 
                     <div class="nk-block-head-content">
                         <div class="toggle-wrap nk-block-tools-toggle">
@@ -42,10 +36,10 @@
                                         </div>
                                     </li> -->
                                     <li>
-                                     
+
                                             <a href="#" class=" btn btn-outline-light btn-white" data-toggle="modal" data-target="#instructions">Check Instructions</a>
-                                           
-                                   
+
+
                                     </li>
                                     <li class="nk-block-tools-opt">
                                         <a href="#" data-target="addProduct" class="toggle btn btn-icon btn-primary d-md-none"><em class="icon ni ni-plus"></em></a>
@@ -59,21 +53,21 @@
             </div><!-- .nk-block-head -->
 
 
-            
+
             <div class="nk-block">
                 <div class="nk-tb-list is-separate mb-3">
                     <div class="nk-tb-item nk-tb-head">
 
-                       
-                       
+
+
                         <div class="nk-tb-col tb-col-sm"><span>Name</span></div>
-                  
+
                         <div class="nk-tb-col"><span>Price</span></div>
                         <div class="nk-tb-col"><span>Number In Stock</span></div>
                         <div class="nk-tb-col tb-col-md"><span>Approval Status</span></div>
                         <!-- <div class="nk-tb-col tb-col-md"><em class="tb-asterisk icon ni ni-star-round"></em></div> -->
                         <div class="nk-tb-col nk-tb-col-tools">
-                            
+
                         </div>
                     </div><!-- .nk-tb-item -->
 
@@ -82,15 +76,15 @@
                     {% for val in all_ur_items %}
 
                     <div class="nk-tb-item">
-                        
-                        
+
+
                         <div class="nk-tb-col tb-col-sm">
                             <span class="tb-product">
                                 <img src="{{val.thumbnailImagePath.url}}" alt="" class="thumb">
                                 <span class="title">{{val.name}}</span>
                             </span>
                         </div>
-                      
+
                         <div class="nk-tb-col">
                             <span class="tb-lead">₦{{val.price}}</span>
                         </div>
@@ -100,17 +94,17 @@
                         <div class="nk-tb-col tb-col-md">
 
                             {% if val.admin_approved == True %}
-                    
+
                             <li><span class="badge badge-success">Approved</span></li>
                             {% else %}
-                       
+
                             <li><span class="badge badge-danger">Pending</span></li>
                             {% endif %}
-                          
-                           
-                        
+
+
+
                         </div>
-                       
+
                         <div class="nk-tb-col nk-tb-col-tools">
                             <ul class="nk-tb-actions gx-1 my-n1">
                                 <li class="mr-n1">
@@ -123,7 +117,7 @@
                                                 {% else %}
                                                 <li><a href="{% url 'shop:item-details' val.id %}"><em class="icon ni ni-edit"></em><span>Edit Product</span></a></li>
                                                 {% endif %}
-                                              
+
                                                 <!-- <li><a href="#"><em class="icon ni ni-activity-round"></em><span>Product Orders</span></a></li>
                                                 <li><a href="#"><em class="icon ni ni-trash"></em><span>Remove Product</span></a></li> -->
                                             </ul>
@@ -137,8 +131,23 @@
                     {% endif %}
 
                 </div><!-- .nk-tb-list -->
-                
+
             </div><!-- .nk-block -->
+
+
+
+            {% if messages %}
+            <div class="nk-block" style="color: red; text-align: center !important;">
+
+                        <ul class="messages">
+                            {% for message in messages %}
+                                {% if 'error' == message.tags %}
+                                    <li>{{ message }}</li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+            </div>
+            {% endif %}
 
 
 
@@ -171,12 +180,12 @@
                                 <label class="form-label" for="item_desc">Item Description*</label>
                                 <div class="form-control-wrap">
                                     <textarea  class="form-control" name="item_desc" id="item_desc" cols="30" rows="10" required></textarea>
-                                   
+
                                 </div>
                             </div>
                         </div>
-                       
-                       
+
+
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="form-label" for="item_cat">Item Category*</label>
@@ -222,8 +231,8 @@
                                 <label class="form-label" for="displayImagePath"> Display Image Path*</label>
                             <div class="form-control-wrap">
                                 <div class="custom-file">
-                                    <input name="displayImagePath" type="file" class="custom-file-input" id="displayImagePath" accept="image/*" required> 
-                                    <label class="custom-file-label" for="displayImagePath">Choose file</label> 
+                                    <input name="displayImagePath" type="file" class="custom-file-input" id="displayImagePath" accept="image/*" required>
+                                    <label class="custom-file-label" for="displayImagePath">Choose file</label>
                                 </div>
                             </div>
                             </div>
@@ -233,25 +242,25 @@
                                 <label class="form-label" for="thumbnailImagePath"> Thumbnail Image Path* </label>
                                 <div class="form-control-wrap">
                                     <div class="custom-file">
-                                        <input name="thumbnailImagePath" type="file" class="custom-file-input" id="thumbnailImagePath" accept="image/*" required> 
-                                        <label class="custom-file-label" for="thumbnailImagePath">Choose file</label> 
+                                        <input name="thumbnailImagePath" type="file" class="custom-file-input" id="thumbnailImagePath" accept="image/*" required>
+                                        <label class="custom-file-label" for="thumbnailImagePath">Choose file</label>
                                     </div>
                                 </div>
                             </div>
-                        
+
                         </div>
                         <div class="col-12">
                             <div class="form-group">
                                 <label class="form-label" for="bannerImagePath"> Banner Image Path* </label>
                                 <div class="form-control-wrap">
                                     <div class="custom-file">
-                                        <input name="bannerImagePath" type="file" class="custom-file-input" id="bannerImagePath" accept="image/*" required> 
-                                        <label class="custom-file-label" for="bannerImagePath">Choose file</label> 
+                                        <input name="bannerImagePath" type="file" class="custom-file-input" id="bannerImagePath" accept="image/*" required>
+                                        <label class="custom-file-label" for="bannerImagePath">Choose file</label>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="col-12">
                             <button class="btn btn-primary"><em class="icon ni ni-plus"></em><span>Submit</span></button>
                         </div>
@@ -287,21 +296,21 @@
                 <div class="tab-content">
                     <div class="tab-pane active" id="tabItem1">
                         <h6 class="title">displayImagePath</h6>
-                        <div style="border: solid whitesmoke;" class="container"> 
+                        <div style="border: solid whitesmoke;" class="container">
                         <img src="{% static 'images/product/5.jpg' %}" alt="">
                         </div>
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro numquam distinctio ab cupiditate veniam a aperiam architecto perspiciatis quidem provident!</p>
                         <h6 class="title" >bannerImagePath</h6>
-                        <div style="border: solid whitesmoke;" class="container"> 
+                        <div style="border: solid whitesmoke;" class="container">
                             <img src="{% static 'images/product/1-1.jpg' %}" alt="">
                         </div>
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro numquam distinctio ab cupiditate veniam a aperiam architecto perspiciatis quidem provident!</p>
                         <h6 class="title" >thumbnailImagePath</h6>
-                        <div style="border: solid whitesmoke;" class="container"> 
+                        <div style="border: solid whitesmoke;" class="container">
                         <img src="{% static 'images/product/5.jpg' %}" alt="">
                         </div>
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro numquam distinctio ab cupiditate veniam a aperiam architecto perspiciatis quidem provident!</p>
-                       
+
                     </div>
                     <div class="tab-pane" id="tabItem2">
                         <h6 class="title">Item Name</h6>
@@ -321,7 +330,7 @@
 {% block extra_scripts %}
 
 <script>
-    // display image size check 
+    // display image size check
     $('#displayImagePath').on('change', function() {
         const fileSize = this.files[0].size / 1024 / 1024
         console.log(fileSize)
@@ -329,8 +338,8 @@
             console.log('This file size is: ' + fileSize + "MiB");
             this.value = null;
             alert(`Image file size must be less than 9.5mb`);
-            
-        }        
+
+        }
 });
 
 
@@ -341,8 +350,8 @@ $('#thumbnailImagePath').on('change', function() {
             console.log('This file size is: ' + fileSize + "MiB");
             this.value = null;
             alert(`Image file size must be less than 9.5mb`);
-            
-        }        
+
+        }
 });
 
 
@@ -354,8 +363,8 @@ $('#bannerImagePath').on('change', function() {
             console.log('This file size is: ' + fileSize + "MiB");
             this.value = null;
             alert(`Image file size must be less than 9.5mb`);
-            
-        }        
+
+        }
 });
 </script>
 
