@@ -41,7 +41,7 @@ class ItemsViewSet(ModelViewSet):
 
     @action(methods=["GET"], detail=False)
     def get_list(self, request):
-        all_items = RentalGame.objects.all()
+        all_items = RentalGame.objects.all().order_by("-id")
 
         for val in all_items:
             print(val.name)
