@@ -23,6 +23,8 @@ from dateutil.relativedelta import relativedelta
 from django.utils.timezone import make_aware
 from django.utils import datetime_safe, timezone
 
+from ..tasks import *
+
 
 import requests, json
 
@@ -57,28 +59,10 @@ class ItemsViewSet(ModelViewSet):
             the_item.admin_approved = True
             the_item.save()
             ### send email to vendor to notify
-            try:
-                subject, from_email, to = (
-                    "Rental Item Approved",
-                    "GameOn <noreply@gameon.com.ng>",
-                    [the_item.vendor.user.email],
-                    # ["shola.albert@gmail.com"],
-                )
+            send_rental_item_approved_email(the_item.id)
 
-                html_content = render_to_string(
-                    "events/rental_approved.html",
-                    {
-                        "item_name": the_item.name,
-                        "vendor_fullname": f"{the_item.vendor.first_name} {the_item.vendor.last_name}",
-                    },
-                )
-                msg = EmailMessage(subject, html_content, from_email, to)
-                msg.content_subtype = "html"
-                msg.send()
-            except:
-                pass
             return Response(
-                {"message": [" Item approved "]},
+                {"message": ["Item approved "]},
                 status=status.HTTP_200_OK,
             )
         except Exception as e:
