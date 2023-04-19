@@ -57,6 +57,26 @@ class ItemsViewSet(ModelViewSet):
             the_item.admin_approved = True
             the_item.save()
             ### send email to vendor to notify
+            try:
+                subject, from_email, to = (
+                    "Shop Item Approved",
+                    "GameOn <noreply@gameon.com.ng>",
+                    [the_item.vendor.user.email],
+                    # ["shola.albert@gmail.com"],
+                )
+
+                html_content = render_to_string(
+                    "events/item_approved.html",
+                    {
+                        "item_name": the_item.name,
+                        "vendor_fullname": f"{the_item.vendor.first_name} {the_item.vendor.last_name}",
+                    },
+                )
+                msg = EmailMessage(subject, html_content, from_email, to)
+                msg.content_subtype = "html"
+                msg.send()
+            except:
+                pass
             return Response(
                 {"message": [" Item approved "]},
                 status=status.HTTP_200_OK,
