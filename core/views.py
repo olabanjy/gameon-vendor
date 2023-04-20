@@ -42,7 +42,7 @@ def dashboard(request):
         rentalOrderCount = len(rental_orders.json())
         print(rental_orders.json())
         for item in rental_orders.json():
-            rentalOrderRev += int(item["item"]["price"])
+            rentalOrderRev += int(item["item"]["dailyRentalRate"])
 
     shop_orders = requests.get(
         f"{settings.CLIENT_BASE_URL}shop/item/order/get_vendor_orders/?vendor_code={vendor_code}&timestamp={time.time()}"
