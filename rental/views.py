@@ -22,6 +22,7 @@ from django.utils.encoding import force_bytes
 import requests
 import json
 from .models import *
+from .tasks import *
 
 
 class ItemList(View):
@@ -79,7 +80,7 @@ class ItemList(View):
         new_item.save()
 
         # send nudge to super admin to approve
-
+        send_rental_item_uploaded_email(new_item.id)
         print("item saved")
 
         return redirect("rental:item-list")

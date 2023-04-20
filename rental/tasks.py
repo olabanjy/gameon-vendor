@@ -27,3 +27,28 @@ def send_rental_item_approved_email(item_id):
     except Exception as e:
         print(e)
         pass
+
+
+def send_rental_item_uploaded_email(item_id):
+    try:
+        the_item = RentalGame.objects.get(id=item_id)
+        subject, from_email, to = (
+            "New Rental Item Uploaded",
+            "GameOn <noreply@gameon.com.ng>",
+            ["admin@gameon.com.ng"],
+            # ["shola.albert@gmail.com"],
+        )
+
+        html_content = render_to_string(
+            "events/rental_item_uploaded.html",
+            {
+                "vendor_shopname": the_item.vendor.shop_name,
+                "vendor_fullname": f"{the_item.vendor.first_name} {the_item.vendor.last_name}",
+            },
+        )
+        msg = EmailMessage(subject, html_content, from_email, to)
+        msg.content_subtype = "html"
+        msg.send()
+    except Exception as e:
+        print(e)
+        pass
