@@ -2,7 +2,7 @@ from .base import *
 
 from celery.schedules import crontab
 
-DEBUG = True
+DEBUG = False
 
 # ALLOWED_HOSTS = []
 ALLOWED_HOSTS = ["147.182.215.53", "vendor.gameon.com.ng"]
