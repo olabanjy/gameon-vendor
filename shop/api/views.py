@@ -44,7 +44,7 @@ class ItemsViewSet(ModelViewSet):
         for val in all_items:
             print(val.name)
 
-        serializer = ItemSerializer(all_items, many=True)
+        serializer = ItemSerializer(all_items, many=True, context={"request": request})
 
         response = Response(serializer.data, status=status.HTTP_200_OK)
         response["Cache-Control"] = "no-cache"
