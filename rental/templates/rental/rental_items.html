@@ -25,26 +25,15 @@
 
                     <div class="nk-block-head-content">
                         <div class="toggle-wrap nk-block-tools-toggle">
+                            <a href="#" data-target="addProduct" class="toggle btn btn-icon btn-primary d-md-none"><em class="icon ni ni-plus"></em></a>
                             <a href="#" class="btn btn-icon btn-trigger toggle-expand mr-n1" data-target="pageMenu"><em class="icon ni ni-more-v"></em></a>
                             <div class="toggle-expand-content" data-content="pageMenu">
                                 <ul class="nk-block-tools g-3">
-                                    <!-- <li>
-                                        <div class="form-control-wrap">
-                                            <div class="form-icon form-icon-right">
-                                                <em class="icon ni ni-search"></em>
-                                            </div>
-                                            <input type="text" class="form-control" id="default-04" placeholder="Quick search by id">
-                                        </div>
-                                    </li> -->
                                     <li>
-
-                                            <a href="#" class=" btn btn-outline-light btn-white" data-toggle="modal" data-target="#instructions">Check Instructions</a>
-
-
+                                        <a href="#" class=" btn btn-outline-light btn-white" data-toggle="modal" data-target="#instructions">Check Instructions</a>
                                     </li>
                                     <li class="nk-block-tools-opt">
-                                        <a href="#" data-target="addProduct" class="toggle btn btn-icon btn-primary d-md-none"><em class="icon ni ni-plus"></em></a>
-                                        <a href="#" data-target="addProduct" class="toggle btn btn-primary d-none d-md-inline-flex"><em class="icon ni ni-plus"></em><span>Add Item</span></a>
+                                        <a href="#" class="btn btn-outline-light btn-white" data-toggle="modal" data-target="#addProduct">Add Item</a>
                                     </li>
                                 </ul>
                             </div>
@@ -61,11 +50,11 @@
 
 
 
-                        <div class="nk-tb-col tb-col-sm"><span>Name</span></div>
+                        <div class="nk-tb-col"><span>Name</span></div>
 
                         <div class="nk-tb-col"><span>Rental Rate</span></div>
                         <div class="nk-tb-col"><span>Number In Stock</span></div>
-                        <div class="nk-tb-col tb-col-md"><span>Approval Status</span></div>
+                        <div class="nk-tb-col"><span>Approval Status</span></div>
                         <!-- <div class="nk-tb-col tb-col-md"><em class="tb-asterisk icon ni ni-star-round"></em></div> -->
                         <div class="nk-tb-col nk-tb-col-tools">
 
@@ -79,7 +68,7 @@
                     <div class="nk-tb-item">
 
 
-                        <div class="nk-tb-col tb-col-sm">
+                        <div class="nk-tb-col">
                             <span class="tb-product">
                                 <img src="{{val.thumbnailImagePath.url}}" alt="" class="thumb">
                                 <span class="title">{{val.name}}</span>
@@ -92,7 +81,7 @@
                         <div class="nk-tb-col">
                             <span class="tb-sub">{{val.numberInStock}}</span>
                         </div>
-                        <div class="nk-tb-col tb-col-md">
+                        <div class="nk-tb-col">
 
                             {% if val.admin_approved == True %}
                             <li><span class="badge badge-success">Approved</span></li>
@@ -286,24 +275,24 @@
                     <div class="tab-pane active" id="tabItem1">
                         <h6 class="title">displayImagePath</h6>
                         <div style="border: solid whitesmoke;" class="container">
-                        <img src="{% static 'images/product/5.jpg' %}" alt="">
+                        <img src="http://via.placeholder.com/500x500" alt="">
                         </div>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro numquam distinctio ab cupiditate veniam a aperiam architecto perspiciatis quidem provident!</p>
+                        <p>Display image must be square ( 500 x 500). </p>
                         <h6 class="title" >bannerImagePath</h6>
                         <div style="border: solid whitesmoke;" class="container">
-                            <img src="{% static 'images/product/1-1.jpg' %}" alt="">
+                            <img src="http://via.placeholder.com/1920x1080" alt="">
                         </div>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro numquam distinctio ab cupiditate veniam a aperiam architecto perspiciatis quidem provident!</p>
+                        <p>Banner image must be landscape ( 1920 x 1080). </p>
                         <h6 class="title" >thumbnailImagePath</h6>
                         <div style="border: solid whitesmoke;" class="container">
-                        <img src="{% static 'images/product/5.jpg' %}" alt="">
+                        <img src="http://via.placeholder.com/500x500" alt="">
                         </div>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro numquam distinctio ab cupiditate veniam a aperiam architecto perspiciatis quidem provident!</p>
+                        <p>The thumbnail image must be square ( 500 x 500) </p>
 
                     </div>
                     <div class="tab-pane" id="tabItem2">
                         <h6 class="title">Item Name</h6>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro numquam distinctio ab cupiditate veniam a aperiam architecto perspiciatis quidem provident!</p>
+                        <p>The correct title of the game must be provided with specific details.</p>
                     </div>
                     <div class="tab-pane" id="tabItem3">
                         <h6 class="title">Trailer Video </h6>
