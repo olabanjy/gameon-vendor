@@ -21930,7 +21930,8 @@ ol.linenums li {
   max-height: 100%; /* Needed for vertical scroll to trigger */
   scrollbar-width: none;
   -ms-overflow-style: none;
-  overflow: hidden scroll;
+  overflow: scroll;
+  /* overflow: hidden scroll; */
 }
 
 .simplebar-content-wrapper::-webkit-scrollbar,

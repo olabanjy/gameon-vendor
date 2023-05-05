@@ -40,7 +40,7 @@
                         <div class="nk-sidebar-content">
                             <div class="nk-sidebar-menu">
                                 <ul class="nk-menu">
-                                   
+
                                     <li class="nk-menu-heading">
                                         <h6 class="overline-title text-primary-alt">Dashboards</h6>
                                     </li><!-- .nk-menu-item -->
@@ -50,8 +50,8 @@
                                             <span class="nk-menu-text">Shop Overview</span>
                                         </a>
                                     </li><!-- .nk-menu-item -->
-                                  
-                                  
+
+
                                     <li class="nk-menu-heading">
                                         <h6 class="overline-title text-primary-alt">Applications</h6>
                                     </li><!-- .nk-menu-heading -->
@@ -64,7 +64,7 @@
                                             <li class="nk-menu-item">
                                                 <a href="{% url 'shop:item-list' %}" class="nk-menu-link"><span class="nk-menu-text">Shop Items</span></a>
                                             </li>
-                                           
+
                                             <li class="nk-menu-item">
                                                 <a href="{% url 'shop:shop-orders' %}" class="nk-menu-link"><span class="nk-menu-text">Shop Orders </span></a>
                                             </li>
@@ -82,28 +82,28 @@
                                             <li class="nk-menu-item">
                                                 <a href="{% url 'rental:rental-orders' %}" class="nk-menu-link"><span class="nk-menu-text">Rental Order </span></a>
                                             </li>
-                                            
-                                            
+
+
                                         </ul><!-- .nk-menu-sub -->
                                     </li><!-- .nk-menu-item -->
 
 
-                                   
-                                   
 
-                                   
-                                   
-                                   
+
+
+
+
+
                                     <li class="nk-menu-heading">
                                         <h6 class="overline-title text-primary-alt">Vendor Account </h6>
                                     </li><!-- .nk-menu-heading -->
-                                   
+
                                     <li class="nk-menu-item">
                                         <a href="{% url 'users:account-settings' %}" class="nk-menu-link">
                                             <span class="nk-menu-icon"><em class="icon ni ni-files"></em></span>
                                             <span class="nk-menu-text">Account Settings</span>
                                         </a>
-                                       
+
                                     </li><!-- .nk-menu-item -->
 
 
@@ -116,9 +116,9 @@
                                             <span class="nk-menu-icon"><em class="icon ni ni-files"></em></span>
                                             <span class="nk-menu-text">Terms & Condition </span>
                                         </a>
-                                       
+
                                     </li>
-                                    
+
 
                                 </ul><!-- .nk-menu -->
                             </div><!-- .nk-sidebar-menu -->
@@ -157,11 +157,11 @@
                             </div>
                             <div class="nk-header-brand d-xl-none">
                                 <a href="/" class="logo-link">
-                                    <img class="logo-light logo-img logo-img-md" src="{% static 'images/logo/logo.png' %}" srcset="{% static 'images/logo/logo.png' %} 2x" alt="logo">
-                                    <img class="logo-dark logo-img logo-img-md" src="{% static 'images/logo/logo.png' %}" srcset="{% static 'images/logo/logo.png' %} 2x" alt="logo-dark">
+                                    <img class="logo-light logo-img logo-img-lg" src="{% static 'images/logo/logo.png' %}" srcset="{% static 'images/logo/logo.png' %} 2x" alt="logo">
+                                    <img class="logo-dark logo-img logo-img-lg" src="{% static 'images/logo/logo.png' %}" srcset="{% static 'images/logo/logo.png' %} 2x" alt="logo-dark">
                                 </a>
                             </div><!-- .nk-header-brand -->
-                            
+
                             <div class="nk-header-tools">
                                 <ul class="nk-quick-nav">
 
@@ -182,7 +182,7 @@
                                             <div class="dropdown-inner user-card-wrap bg-lighter d-none d-md-block">
                                                 <div class="user-card">
                                                     <div >
-                                                        <img  src="{% if request.user.profile.photo %}{{request.user.profile.photo.url}}{% endif %}" width="70%" height="auto" alt=""> 
+                                                        <img  src="{% if request.user.profile.photo %}{{request.user.profile.photo.url}}{% endif %}" width="70%" height="auto" alt="">
                                                     </div>
                                                     <div class="user-info">
                                                         <span class="lead-text">{{request.user.profile.first_name}} {{request.user.profile.last_name}}</span>
@@ -204,17 +204,17 @@
                                             </div>
                                         </div>
                                     </li>
-                                   
+
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-               
+
 
                 {% block content %}
 
-                
+
 
 
                 {% endblock content %}
@@ -229,10 +229,10 @@
                                     <li class="nav-item dropup">
                                         <a herf="#" class="dropdown-toggle  nav-link" data-toggle="dropdown" data-offset="0,10"><span>English</span></a>
                                         <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
-                                            
+
                                         </div>
                                     </li>
-                                  
+
                                 </ul>
                             </div>
                         </div>
@@ -255,7 +255,7 @@
                 <div class="modal-body modal-body-md">
                     <h5 class="title mb-4">Terms & Conditions </h5>
                     <div class="section__list">
-                          
+
                             <li>
 								<h6 class="section__title">Sales Income sharing formula</h6>
 								<p> The sales income generated from selling games and other items will be split the following way. 90% to you the vendor, 10% to GameOn. </p>
@@ -285,30 +285,30 @@
     </div>
 
     {% block modals %}
-  
-    
+
+
 
     {% endblock modals %}
-  
+
     <script src="{% static 'assets/js/bundle.js' %}?ver=2.9.0"></script>
     <script src="{% static 'assets/js/core_scripts.js' %}?ver=2.9.0"></script>
     <script src="{% static 'assets/js/charts/gd-default.js' %}?ver=2.9.0"></script>
 
     <script type="text/javascript">
 
-    
+
         var checkPrompt = $('#phone_number_prompt').val()
         console.log(checkPrompt)
 
         $(document).ready(function(){
-       
+
         if (checkPrompt === "False") {
          console.log("checkprompt is False")
-    
+
         } else {
             $("#tandcondbtn").click();
         }
-            
+
     });
     </script>
 
