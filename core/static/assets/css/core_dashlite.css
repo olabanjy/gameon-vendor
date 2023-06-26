@@ -14721,10 +14721,16 @@ a:hover .btn-trigger:before {
   border-color: #0971fe;
 }
 
-.btn-white.btn-outline-primary:not(.btn-dim):not(:disabled):not(.disabled):hover,
+.btn-white.btn-outline-primary:not(.btn-dim):not(:disabled):not(
+    .disabled
+  ):hover,
 .dt-buttons
-  .btn-outline-primary.btn-secondary:not(.btn-dim):not(:disabled):not(.disabled):hover,
-.btn-trans.btn-outline-primary:not(.btn-dim):not(:disabled):not(.disabled):hover {
+  .btn-outline-primary.btn-secondary:not(.btn-dim):not(:disabled):not(
+    .disabled
+  ):hover,
+.btn-trans.btn-outline-primary:not(.btn-dim):not(:disabled):not(
+    .disabled
+  ):hover {
   color: #0971fe;
   background: #e4efff;
 }
@@ -14741,10 +14747,16 @@ a:hover .btn-trigger:before {
   border-color: #1ee0ac;
 }
 
-.btn-white.btn-outline-success:not(.btn-dim):not(:disabled):not(.disabled):hover,
+.btn-white.btn-outline-success:not(.btn-dim):not(:disabled):not(
+    .disabled
+  ):hover,
 .dt-buttons
-  .btn-outline-success.btn-secondary:not(.btn-dim):not(:disabled):not(.disabled):hover,
-.btn-trans.btn-outline-success:not(.btn-dim):not(:disabled):not(.disabled):hover {
+  .btn-outline-success.btn-secondary:not(.btn-dim):not(:disabled):not(
+    .disabled
+  ):hover,
+.btn-trans.btn-outline-success:not(.btn-dim):not(:disabled):not(
+    .disabled
+  ):hover {
   color: #1ee0ac;
   background: #e6fcf6;
 }
@@ -14761,10 +14773,16 @@ a:hover .btn-trigger:before {
   border-color: #f4bd0e;
 }
 
-.btn-white.btn-outline-warning:not(.btn-dim):not(:disabled):not(.disabled):hover,
+.btn-white.btn-outline-warning:not(.btn-dim):not(:disabled):not(
+    .disabled
+  ):hover,
 .dt-buttons
-  .btn-outline-warning.btn-secondary:not(.btn-dim):not(:disabled):not(.disabled):hover,
-.btn-trans.btn-outline-warning:not(.btn-dim):not(:disabled):not(.disabled):hover {
+  .btn-outline-warning.btn-secondary:not(.btn-dim):not(:disabled):not(
+    .disabled
+  ):hover,
+.btn-trans.btn-outline-warning:not(.btn-dim):not(:disabled):not(
+    .disabled
+  ):hover {
   color: #f4bd0e;
   background: #fef8e4;
 }
@@ -14783,7 +14801,9 @@ a:hover .btn-trigger:before {
 
 .btn-white.btn-outline-info:not(.btn-dim):not(:disabled):not(.disabled):hover,
 .dt-buttons
-  .btn-outline-info.btn-secondary:not(.btn-dim):not(:disabled):not(.disabled):hover,
+  .btn-outline-info.btn-secondary:not(.btn-dim):not(:disabled):not(
+    .disabled
+  ):hover,
 .btn-trans.btn-outline-info:not(.btn-dim):not(:disabled):not(.disabled):hover {
   color: #09c2de;
   background: #e4f8fb;
@@ -14803,8 +14823,12 @@ a:hover .btn-trigger:before {
 
 .btn-white.btn-outline-danger:not(.btn-dim):not(:disabled):not(.disabled):hover,
 .dt-buttons
-  .btn-outline-danger.btn-secondary:not(.btn-dim):not(:disabled):not(.disabled):hover,
-.btn-trans.btn-outline-danger:not(.btn-dim):not(:disabled):not(.disabled):hover {
+  .btn-outline-danger.btn-secondary:not(.btn-dim):not(:disabled):not(
+    .disabled
+  ):hover,
+.btn-trans.btn-outline-danger:not(.btn-dim):not(:disabled):not(
+    .disabled
+  ):hover {
   color: #e85347;
   background: #fceceb;
 }
@@ -14821,10 +14845,16 @@ a:hover .btn-trigger:before {
   border-color: #364a63;
 }
 
-.btn-white.btn-outline-secondary:not(.btn-dim):not(:disabled):not(.disabled):hover,
+.btn-white.btn-outline-secondary:not(.btn-dim):not(:disabled):not(
+    .disabled
+  ):hover,
 .dt-buttons
-  .btn-outline-secondary.btn-secondary:not(.btn-dim):not(:disabled):not(.disabled):hover,
-.btn-trans.btn-outline-secondary:not(.btn-dim):not(:disabled):not(.disabled):hover {
+  .btn-outline-secondary.btn-secondary:not(.btn-dim):not(:disabled):not(
+    .disabled
+  ):hover,
+.btn-trans.btn-outline-secondary:not(.btn-dim):not(:disabled):not(
+    .disabled
+  ):hover {
   color: #364a63;
   background: #e9ebee;
 }
@@ -14843,7 +14873,9 @@ a:hover .btn-trigger:before {
 
 .btn-white.btn-outline-gray:not(.btn-dim):not(:disabled):not(.disabled):hover,
 .dt-buttons
-  .btn-outline-gray.btn-secondary:not(.btn-dim):not(:disabled):not(.disabled):hover,
+  .btn-outline-gray.btn-secondary:not(.btn-dim):not(:disabled):not(
+    .disabled
+  ):hover,
 .btn-trans.btn-outline-gray:not(.btn-dim):not(:disabled):not(.disabled):hover {
   color: #3c4d62;
   background: #f1f3f5;
@@ -14863,7 +14895,9 @@ a:hover .btn-trigger:before {
 
 .btn-white.btn-outline-dark:not(.btn-dim):not(:disabled):not(.disabled):hover,
 .dt-buttons
-  .btn-outline-dark.btn-secondary:not(.btn-dim):not(:disabled):not(.disabled):hover,
+  .btn-outline-dark.btn-secondary:not(.btn-dim):not(:disabled):not(
+    .disabled
+  ):hover,
 .btn-trans.btn-outline-dark:not(.btn-dim):not(:disabled):not(.disabled):hover {
   color: #1f2b3a;
   background: #e6e8e9;
@@ -21896,7 +21930,7 @@ ol.linenums li {
   margin: 0;
   left: 0;
   top: 0;
-  bottom: 0;
+  bottom: 3rem;
   right: 0;
   width: auto !important;
   height: auto !important;
@@ -21910,7 +21944,7 @@ ol.linenums li {
   position: absolute;
   top: 0;
   left: 0;
-  bottom: 0;
+  bottom: 3rem;
   right: 0;
   padding: 0;
   margin: 0;
@@ -24229,7 +24263,13 @@ ol.linenums li {
   justify-content: center;
 }
 
-.swal2-container:not(.swal2-top):not(.swal2-top-start):not(.swal2-top-end):not(.swal2-top-left):not(.swal2-top-right):not(.swal2-center-start):not(.swal2-center-end):not(.swal2-center-left):not(.swal2-center-right):not(.swal2-bottom):not(.swal2-bottom-start):not(.swal2-bottom-end):not(.swal2-bottom-left):not(.swal2-bottom-right):not(.swal2-grow-fullscreen)
+.swal2-container:not(.swal2-top):not(.swal2-top-start):not(.swal2-top-end):not(
+    .swal2-top-left
+  ):not(.swal2-top-right):not(.swal2-center-start):not(.swal2-center-end):not(
+    .swal2-center-left
+  ):not(.swal2-center-right):not(.swal2-bottom):not(.swal2-bottom-start):not(
+    .swal2-bottom-end
+  ):not(.swal2-bottom-left):not(.swal2-bottom-right):not(.swal2-grow-fullscreen)
   > .swal2-modal {
   margin: auto;
 }
@@ -44493,15 +44533,23 @@ body.dark-mode.nk-body.ui-shady {
 }
 
 .dark-mode
-  .btn-white.btn-outline-primary:not(.btn-dim):not(:disabled):not(.disabled):hover,
+  .btn-white.btn-outline-primary:not(.btn-dim):not(:disabled):not(
+    .disabled
+  ):hover,
 .dark-mode
   .dt-buttons
-  .btn-outline-primary.btn-secondary:not(.btn-dim):not(:disabled):not(.disabled):hover,
+  .btn-outline-primary.btn-secondary:not(.btn-dim):not(:disabled):not(
+    .disabled
+  ):hover,
 .dt-buttons
   .dark-mode
-  .btn-outline-primary.btn-secondary:not(.btn-dim):not(:disabled):not(.disabled):hover,
+  .btn-outline-primary.btn-secondary:not(.btn-dim):not(:disabled):not(
+    .disabled
+  ):hover,
 .dark-mode
-  .btn-trans.btn-outline-primary:not(.btn-dim):not(:disabled):not(.disabled):hover {
+  .btn-trans.btn-outline-primary:not(.btn-dim):not(:disabled):not(
+    .disabled
+  ):hover {
   color: #0971fe;
   background: #122b4d;
 }
@@ -44519,15 +44567,23 @@ body.dark-mode.nk-body.ui-shady {
 }
 
 .dark-mode
-  .btn-white.btn-outline-success:not(.btn-dim):not(:disabled):not(.disabled):hover,
+  .btn-white.btn-outline-success:not(.btn-dim):not(:disabled):not(
+    .disabled
+  ):hover,
 .dark-mode
   .dt-buttons
-  .btn-outline-success.btn-secondary:not(.btn-dim):not(:disabled):not(.disabled):hover,
+  .btn-outline-success.btn-secondary:not(.btn-dim):not(:disabled):not(
+    .disabled
+  ):hover,
 .dt-buttons
   .dark-mode
-  .btn-outline-success.btn-secondary:not(.btn-dim):not(:disabled):not(.disabled):hover,
+  .btn-outline-success.btn-secondary:not(.btn-dim):not(:disabled):not(
+    .disabled
+  ):hover,
 .dark-mode
-  .btn-trans.btn-outline-success:not(.btn-dim):not(:disabled):not(.disabled):hover {
+  .btn-trans.btn-outline-success:not(.btn-dim):not(:disabled):not(
+    .disabled
+  ):hover {
   color: #1ee0ac;
   background: #163f3e;
 }
@@ -44545,15 +44601,23 @@ body.dark-mode.nk-body.ui-shady {
 }
 
 .dark-mode
-  .btn-white.btn-outline-warning:not(.btn-dim):not(:disabled):not(.disabled):hover,
+  .btn-white.btn-outline-warning:not(.btn-dim):not(:disabled):not(
+    .disabled
+  ):hover,
 .dark-mode
   .dt-buttons
-  .btn-outline-warning.btn-secondary:not(.btn-dim):not(:disabled):not(.disabled):hover,
+  .btn-outline-warning.btn-secondary:not(.btn-dim):not(:disabled):not(
+    .disabled
+  ):hover,
 .dt-buttons
   .dark-mode
-  .btn-outline-warning.btn-secondary:not(.btn-dim):not(:disabled):not(.disabled):hover,
+  .btn-outline-warning.btn-secondary:not(.btn-dim):not(:disabled):not(
+    .disabled
+  ):hover,
 .dark-mode
-  .btn-trans.btn-outline-warning:not(.btn-dim):not(:disabled):not(.disabled):hover {
+  .btn-trans.btn-outline-warning:not(.btn-dim):not(:disabled):not(
+    .disabled
+  ):hover {
   color: #f4bd0e;
   background: #3d3922;
 }
@@ -44574,12 +44638,18 @@ body.dark-mode.nk-body.ui-shady {
   .btn-white.btn-outline-info:not(.btn-dim):not(:disabled):not(.disabled):hover,
 .dark-mode
   .dt-buttons
-  .btn-outline-info.btn-secondary:not(.btn-dim):not(:disabled):not(.disabled):hover,
+  .btn-outline-info.btn-secondary:not(.btn-dim):not(:disabled):not(
+    .disabled
+  ):hover,
 .dt-buttons
   .dark-mode
-  .btn-outline-info.btn-secondary:not(.btn-dim):not(:disabled):not(.disabled):hover,
+  .btn-outline-info.btn-secondary:not(.btn-dim):not(:disabled):not(
+    .disabled
+  ):hover,
 .dark-mode
-  .btn-trans.btn-outline-info:not(.btn-dim):not(:disabled):not(.disabled):hover {
+  .btn-trans.btn-outline-info:not(.btn-dim):not(:disabled):not(
+    .disabled
+  ):hover {
   color: #09c2de;
   background: #123a47;
 }
@@ -44597,15 +44667,23 @@ body.dark-mode.nk-body.ui-shady {
 }
 
 .dark-mode
-  .btn-white.btn-outline-danger:not(.btn-dim):not(:disabled):not(.disabled):hover,
+  .btn-white.btn-outline-danger:not(.btn-dim):not(:disabled):not(
+    .disabled
+  ):hover,
 .dark-mode
   .dt-buttons
-  .btn-outline-danger.btn-secondary:not(.btn-dim):not(:disabled):not(.disabled):hover,
+  .btn-outline-danger.btn-secondary:not(.btn-dim):not(:disabled):not(
+    .disabled
+  ):hover,
 .dt-buttons
   .dark-mode
-  .btn-outline-danger.btn-secondary:not(.btn-dim):not(:disabled):not(.disabled):hover,
+  .btn-outline-danger.btn-secondary:not(.btn-dim):not(:disabled):not(
+    .disabled
+  ):hover,
 .dark-mode
-  .btn-trans.btn-outline-danger:not(.btn-dim):not(:disabled):not(.disabled):hover {
+  .btn-trans.btn-outline-danger:not(.btn-dim):not(:disabled):not(
+    .disabled
+  ):hover {
   color: #e85347;
   background: #3a262c;
 }
@@ -44623,15 +44701,23 @@ body.dark-mode.nk-body.ui-shady {
 }
 
 .dark-mode
-  .btn-white.btn-outline-secondary:not(.btn-dim):not(:disabled):not(.disabled):hover,
+  .btn-white.btn-outline-secondary:not(.btn-dim):not(:disabled):not(
+    .disabled
+  ):hover,
 .dark-mode
   .dt-buttons
-  .btn-outline-secondary.btn-secondary:not(.btn-dim):not(:disabled):not(.disabled):hover,
+  .btn-outline-secondary.btn-secondary:not(.btn-dim):not(:disabled):not(
+    .disabled
+  ):hover,
 .dt-buttons
   .dark-mode
-  .btn-outline-secondary.btn-secondary:not(.btn-dim):not(:disabled):not(.disabled):hover,
+  .btn-outline-secondary.btn-secondary:not(.btn-dim):not(:disabled):not(
+    .disabled
+  ):hover,
 .dark-mode
-  .btn-trans.btn-outline-secondary:not(.btn-dim):not(:disabled):not(.disabled):hover {
+  .btn-trans.btn-outline-secondary:not(.btn-dim):not(:disabled):not(
+    .disabled
+  ):hover {
   color: #6b89ae;
   background: #1d2835;
 }
@@ -44652,12 +44738,18 @@ body.dark-mode.nk-body.ui-shady {
   .btn-white.btn-outline-gray:not(.btn-dim):not(:disabled):not(.disabled):hover,
 .dark-mode
   .dt-buttons
-  .btn-outline-gray.btn-secondary:not(.btn-dim):not(:disabled):not(.disabled):hover,
+  .btn-outline-gray.btn-secondary:not(.btn-dim):not(:disabled):not(
+    .disabled
+  ):hover,
 .dt-buttons
   .dark-mode
-  .btn-outline-gray.btn-secondary:not(.btn-dim):not(:disabled):not(.disabled):hover,
+  .btn-outline-gray.btn-secondary:not(.btn-dim):not(:disabled):not(
+    .disabled
+  ):hover,
 .dark-mode
-  .btn-trans.btn-outline-gray:not(.btn-dim):not(:disabled):not(.disabled):hover {
+  .btn-trans.btn-outline-gray:not(.btn-dim):not(:disabled):not(
+    .disabled
+  ):hover {
   color: #b7c2d0;
   background: #28313d;
 }
@@ -44678,12 +44770,18 @@ body.dark-mode.nk-body.ui-shady {
   .btn-white.btn-outline-dark:not(.btn-dim):not(:disabled):not(.disabled):hover,
 .dark-mode
   .dt-buttons
-  .btn-outline-dark.btn-secondary:not(.btn-dim):not(:disabled):not(.disabled):hover,
+  .btn-outline-dark.btn-secondary:not(.btn-dim):not(:disabled):not(
+    .disabled
+  ):hover,
 .dt-buttons
   .dark-mode
-  .btn-outline-dark.btn-secondary:not(.btn-dim):not(:disabled):not(.disabled):hover,
+  .btn-outline-dark.btn-secondary:not(.btn-dim):not(:disabled):not(
+    .disabled
+  ):hover,
 .dark-mode
-  .btn-trans.btn-outline-dark:not(.btn-dim):not(:disabled):not(.disabled):hover {
+  .btn-trans.btn-outline-dark:not(.btn-dim):not(:disabled):not(
+    .disabled
+  ):hover {
   color: #e5e9f2;
   background: #323a45;
 }
@@ -44709,7 +44807,9 @@ body.dark-mode.nk-body.ui-shady {
 }
 
 .dark-mode
-  .btn-white.btn-outline-light:not(.btn-dim):not(:disabled):not(.disabled):hover,
+  .btn-white.btn-outline-light:not(.btn-dim):not(:disabled):not(
+    .disabled
+  ):hover,
 .dark-mode
   .dt-buttons
   .btn-secondary:not(.btn-dim):not(:disabled):not(.disabled):hover,
@@ -44717,7 +44817,9 @@ body.dark-mode.nk-body.ui-shady {
   .dark-mode
   .btn-secondary:not(.btn-dim):not(:disabled):not(.disabled):hover,
 .dark-mode
-  .btn-trans.btn-outline-light:not(.btn-dim):not(:disabled):not(.disabled):hover,
+  .btn-trans.btn-outline-light:not(.btn-dim):not(:disabled):not(
+    .disabled
+  ):hover,
 .dark-mode
   .dt-buttons
   .btn-trans.btn-secondary:not(.btn-dim):not(:disabled):not(.disabled):hover,
